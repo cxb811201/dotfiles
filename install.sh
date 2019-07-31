@@ -122,6 +122,12 @@ ln -sf $DOTFILES/.npmrc $HOME/.npmrc
 # gem
 ln -sf $DOTFILES/.gemrc $HOME/.gemrc
 
+# pypi
+if [ $(get_os) != "macos" ]; then
+    mkdir -p $HOME/.config/pip
+    ln -sf $DOTFILES/pip.conf $HOME/.config/pip/pip.conf
+fi
+
 # sbt
 cp -rf $DOTFILES/.sbt $HOME
 
