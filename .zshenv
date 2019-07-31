@@ -29,3 +29,6 @@ fi
 
 # metals
 export METALS_ENABLED="true"
+
+# golang
+export GOPROXY="https://athens.azurefd.net"
