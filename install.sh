@@ -74,6 +74,15 @@ if [ "$(get_os)" == "macos" ]; then
         brew tap d12frosted/emacs-plus
         print_success "homebrew-emacs-plus add successfully"
     fi
+
+    print_info "check homebrew-bloop..."
+    if [[ -d "$(brew --repo)/Library/Taps/scalacenter/homebrew-bloop" ]]; then
+        print_success "homebrew-bloop has been added"
+    else
+        print_info "adding homebrew-bloop..."
+        brew tap scalacenter/homebrew-bloop
+        print_success "homebrew-bloop add successfully"
+    fi
 fi
 
 print_info "checking antigne..."
