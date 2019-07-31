@@ -127,6 +127,10 @@ ln -sf $DOTFILES/.gemrc $HOME/.gemrc
 mkdir -p $HOME/.config/pip
 ln -sf $DOTFILES/pip.conf $HOME/.config/pip/pip.conf
 
+# cargo for rust
+mkdir -p $HOME/.cargo
+ln -sf $DOTFILES/.cargo/config $HOME/.cargo/config
+
 # sbt
 cp -rf $DOTFILES/.sbt $HOME
 
