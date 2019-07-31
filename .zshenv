@@ -32,3 +32,5 @@ export METALS_ENABLED="true"
 
 # golang
 export GOPROXY="https://athens.azurefd.net"
+export GOPATH="$HOME/Projects/go"
+export PATH=${GOPATH//://bin:}/bin:$PATH
