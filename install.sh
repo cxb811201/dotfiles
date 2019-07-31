@@ -119,6 +119,9 @@ ln -sf $DOTFILES/.tmux.conf.local $HOME/.tmux.conf.local
 # npm
 ln -sf $DOTFILES/.npmrc $HOME/.npmrc
 
+# gem
+ln -sf $DOTFILES/.gemrc $HOME/.gemrc
+
 # sbt
 cp -rf $DOTFILES/.sbt $HOME
 
