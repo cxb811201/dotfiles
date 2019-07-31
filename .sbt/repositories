@@ -1,0 +1,17 @@
+[repositories]
+  local
+  maven-local
+  typesafe-ivy-releases: https://dl.bintray.com/typesafe/ivy-releases/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext], bootOnly
+  sbt-plugin-releases: https://dl.bintray.com/sbt/sbt-plugin-releases/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+  2m-plugin-releases: https://dl.bintray.com/2m/sbt-plugins/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+  jb-plugin-releases: https://dl.bintray.com/jetbrains/sbt-plugins, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+  51scala-plugin-releases: https://dl.bintray.com/cxb811201/sbt-plugins/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+  tencent: https://mirrors.cloud.tencent.com/nexus/repository/maven-public
+  dnvriend: https://dl.bintray.com/dnvriend/maven
+  51scala: https://dl.bintray.com/cxb811201/maven
+  cakesolutions: https://dl.bintray.com/cakesolutions/maven
+  hseeberger: https://dl.bintray.com/hseeberger/maven
+  jcenter: https://jcenter.bintray.com
+  sonatype-oss-releases
+  maven-central
+  sonatype-oss-snapshots

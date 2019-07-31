@@ -1,0 +1,10 @@
+# -*- mode: gitconfig -*-
+[include]
+	path = ~/.gitconfig_global
+[user]
+	name = Mike Chen
+	email = 517926804@qq.com
+[credential]
+	helper = osxkeychain
+[github]
+	user = cxb811201

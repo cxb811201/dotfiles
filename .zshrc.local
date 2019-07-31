@@ -1,0 +1,77 @@
+# local configurations -*- mode: sh -*-
+
+# show system info
+if cmd_exists "neofetch"; then
+    neofetch
+fi
+
+# theme
+if [ -n "$INSIDE_EMACS" ]; then
+    DISABLE_AUTO_TITLE="true"
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white,underline'
+fi
+
+# proxy
+function proxy() {
+    # export http_proxy="http://127.0.0.1:8001"
+    # export https_proxy="http://127.0.0.1:8001"
+    export http_proxy="socks5://127.0.0.1:1081"
+    export https_proxy="socks5://127.0.0.1:1081"
+    export no_proxy="localhost,arch,127.0.0.1,10.0.0.*,172.16.*.*,192.168.*.*"
+    # export ALL_PROXY=socks5://127.0.0.1:1081
+    echo "HTTP Proxy on"
+}
+
+function noproxy() {
+    unset http_proxy
+    unset https_proxy
+    unset no_proxy
+    # unset ALL_PROXY
+    echo "HTTP Proxy off"
+}
+
+function sbt_proxy() {
+    export OLD_SBT_OPTS=$SBT_OPTS
+    export SBT_OPTS="-Xms2048m -Xmx2048m -XX:ReservedCodeCacheSize=256m -XX:MaxMetaspaceSize=512m -Dcom.ning.http.client.AsyncHttpClientConfig.useProxyProperties=true -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=1081 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=1081 -Dhttp.nonProxyHosts=localhost|127.0.0.1|192.168.*|10.0.0.*|172.16.*"
+    echo "SBT http proxy on"
+}
+
+function sbt_noproxy() {
+    export SBT_OPTS="-Xms2048m -Xmx2048m -XX:ReservedCodeCacheSize=256m -XX:MaxMetaspaceSize=512m -Dsbt.override.build.repos=true"
+    echo "SBT http proxy off"
+}
+
+# homebrew
+if [[ $OSTYPE == darwin* ]]; then
+    function set_homebrew_mirror() {
+        cd "$(brew --repo)"
+        git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+        cd - >/dev/null
+
+        cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+        git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+        cd - >/dev/null
+
+        cd "$(brew --repo)/Library/Taps/homebrew/homebrew-cask"
+        git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+        cd - >/dev/null
+
+        brew update
+    }
+
+    function reset_homebrew() {
+        cd "$(brew --repo)"
+        git remote set-url origin https://github.com/Homebrew/brew.git
+        cd - >/dev/null
+
+        cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+        git remote set-url origin https://github.com/Homebrew/homebrew-core.git
+        cd - >/dev/null
+
+        cd "$(brew --repo)"/Library/Taps/homebrew/homebrew-cask
+        git remote set-url origin https://github.com/Homebrew/homebrew-cask
+        cd - >/dev/null
+
+        brew update
+    }
+fi
