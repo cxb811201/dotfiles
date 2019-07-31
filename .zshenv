@@ -11,6 +11,12 @@ fi
 if [[ $OSTYPE == darwin* ]]; then
     export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
     export HOMEBREW_GITHUB_API_TOKEN="257876059321209bf5add4b877dd695ebf9d1d48"
+
+    export PATH="$(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin:$PATH"
+    export PATH="$(/usr/local/bin/brew --prefix gnupg@1.4)/libexec/gpgbin:$PATH"
+    export PATH="$(/usr/local/bin/brew --prefix openssl)/bin:$PATH"
+    export PATH="$(/usr/local/bin/brew --prefix gnu-tar)/libexec/gnubin:$PATH"
+    export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 fi
 
 # rust
