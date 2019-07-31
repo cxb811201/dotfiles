@@ -104,6 +104,7 @@ else
             mkdir -p $ANTIGEN
             curl -fsSL https://git.io/antigen > $ANTIGEN/antigen.zsh.tmp && mv $ANTIGEN/antigen.zsh.tmp $ANTIGEN/antigen.zsh
     esac
+    print_success "antigen install successfully"
 fi
 
 print_info "installing dotfiles..."
