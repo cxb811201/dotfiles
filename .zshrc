@@ -129,7 +129,17 @@ else
     else
         alias upgrade_antigen='curl -fsSL https://git.io/antigen > $ANTIGEN/antigen.zsh.tmp && mv $ANTIGEN/antigen.zsh.tmp $ANTIGEN/antigen.zsh'
     fi
+
+    if cmd_exists "docker"; then
+        alias docker='sudo docker'
+    fi
+
+    if cmd_exists "docker-compose"; then
+        alias docker-compose='sudo docker-compose'
+    fi
 fi
+
+alias upgrade_dotfiles='cd $DOTFILES && git pull; cd - >/dev/null'
 
 if cmd_exists "emacsclient"; then
     alias e='emacsclient -a "" -n'
