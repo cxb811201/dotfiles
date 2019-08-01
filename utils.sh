@@ -170,9 +170,9 @@ function sync_git_repo() {
 
     if [ ! -e "$repo_path" ]; then
         mkdir -p "$repo_path"
-        git clone --depth 1 --branch $repo_branch "https://$repo_type.com/$repo_uri.git" "$repo_path"
+        git clone --recursive --depth 1 --branch $repo_branch "https://$repo_type.com/$repo_uri.git" "$repo_path"
     else
-        cd "$repo_path" && git pull origin $repo_branch; cd - >/dev/null
+        cd "$repo_path" && git pull origin $repo_branch && git submodule update --init --recursive; cd - >/dev/null
     fi
 }
 
