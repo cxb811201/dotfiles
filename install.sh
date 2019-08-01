@@ -163,8 +163,8 @@ sync_git_repo github cxb811201/spacemacs $EMACSD develop
 sync_git_repo github cxb811201/spacemacs-private $SPACEMACSD
 
 if [ $(get_os) != "macos" ]; then
-    sed -i "s/     (osx/     ;; (osx/g" init.el
-    sed -i "s/          osx-command-as/     ;;      osx-command-as/g" init.el
+    sed -i "s/     (osx/     ;; (osx/g" $SPACEMACSD/init.el
+    sed -i "s/          osx-command-as/     ;;      osx-command-as/g" $SPACEMACSD/init.el
 fi
 print_success "spacemacs install successfully"
 
