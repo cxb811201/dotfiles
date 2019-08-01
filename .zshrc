@@ -43,6 +43,9 @@ antigen bundle jenv
 
 if cmd_exists "tmux"; then
     antigen bundle tmux
+    if [[ -n "$TERM" ]]; then
+        ZSH_TMUX_FIXTERM_WITH_256COLOR="$TERM"
+    fi
 fi
 
 if cmd_exists "docker"; then
