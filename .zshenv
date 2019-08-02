@@ -34,4 +34,7 @@ export METALS_ENABLED="true"
 export GO111MODULE=on
 export GOPROXY="https://athens.azurefd.net"
 export GOPATH="$HOME/Projects/go"
+if [[ $OSTYPE == darwin* ]]; then
+    export GOROOT="/usr/local/opt/go/libexec"
+fi
 export PATH=${GOPATH//://bin:}/bin:$PATH
