@@ -27,7 +27,7 @@ function check() {
         print_warning "nvm is not installed"
         print_info "installing nvm..."
         mkdir -p "$NVM_DIR"
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | METHOD="script" sh
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | METHOD="script" sh
         print_success "nvm install successfully"
         source "$NVM_DIR/nvm.sh"
     else
