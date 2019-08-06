@@ -7,7 +7,10 @@ if [[ ! -d "$BASE_DIR" ]]; then BASE_DIR="$PWD"; fi
 
 GO111MODULE=on
 GOPROXY="https://goproxy.io"
-GOPATH="$HOME/Projects/go"
+if [ -z "$GOPATH" ]; then
+    GOPATH="$HOME/go"
+fi
+echo $GOPATH
 
 packages=(
     github.com/stamblerre/gocode # for go mod
