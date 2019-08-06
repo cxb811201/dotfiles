@@ -148,6 +148,7 @@ else
 fi
 
 alias upgrade_dotfiles='cd $DOTFILES && git pull; cd - >/dev/null'
+alias upgrade_powerlevel10k='cd $ANTIGEN/bundles/romkatv/powerlevel10k && git pull; cd - >/dev/null'
 
 if cmd_exists "emacsclient"; then
     alias e='emacsclient -a "" -n'
