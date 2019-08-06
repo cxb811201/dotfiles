@@ -76,10 +76,6 @@ if cmd_exists "cargo"; then
     antigen bundle cargo
 fi
 
-if cmd_exists "go"; then
-    antigen bundle golang
-fi
-
 # syntax highlighting
 # antigen bundle zsh-users/zsh-syntax-highlighting
 # ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern regexp)
