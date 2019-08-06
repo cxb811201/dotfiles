@@ -158,6 +158,21 @@ function promote_yn() {
     esac
 }
 
+function promote_ny() {
+    if [ "$#" -ne 2 ]; then
+        print_error_and_exit "ERROR with promote_ny. Usage: promote_ny <Message> <Variable Name>"
+    fi
+
+    eval ${2}=$NO
+    print_question "$1 [yN]"
+    read yn
+    case $yn in
+        [Nn]*|'' ) eval ${2}=$NO;;
+        [Yy]* )    eval ${2}=$YES;;
+        *)         eval ${2}=$NO;;
+    esac
+}
+
 function sync_git_repo() {
     local repo_type="$1"
     local repo_uri="$2"
