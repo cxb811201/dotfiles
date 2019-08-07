@@ -39,7 +39,6 @@ antigen bundle extract
 antigen bundle encode64
 antigen bundle web-search
 antigen bundle urltools
-antigen bundle jenv
 
 if cmd_exists "tmux"; then
     antigen bundle tmux

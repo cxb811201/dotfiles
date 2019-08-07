@@ -1,11 +1,20 @@
 export LANG="en_US.UTF-8"
 export TERM="xterm-256color"
-export JAVA_OPTS="-XX:+UseNUMA -XX:+UseG1GC"
-export SBT_OPTS="-Xms2048m -Xmx2048m -XX:ReservedCodeCacheSize=256m -XX:MaxMetaspaceSize=512m -Dsbt.override.build.repos=true"
 
 if [[ -d "$HOME/.local/bin" ]]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
+
+# java
+if [[ -d "$HOME/.jenv/bin" ]]; then
+    export PATH="$HOME/.jenv/bin:$PATH"
+    eval "$(jenv init - zsh)"
+fi
+export JAVA_OPTS="-XX:+UseNUMA -XX:+UseG1GC"
+export SBT_OPTS="-Xms2048m -Xmx2048m -XX:ReservedCodeCacheSize=256m -XX:MaxMetaspaceSize=512m -Dsbt.override.build.repos=true"
+
+# metals
+export METALS_ENABLED="true"
 
 # brew
 if [[ $OSTYPE == darwin* ]]; then
@@ -30,9 +39,6 @@ if command -v "emacsclient" &> /dev/null; then
 else
     export EDITOR="vim"
 fi
-
-# metals
-export METALS_ENABLED="true"
 
 # golang
 export GO111MODULE=on
