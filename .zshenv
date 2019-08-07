@@ -3,7 +3,7 @@ export TERM="xterm-256color"
 export JAVA_OPTS="-XX:+UseNUMA -XX:+UseG1GC"
 export SBT_OPTS="-Xms2048m -Xmx2048m -XX:ReservedCodeCacheSize=256m -XX:MaxMetaspaceSize=512m -Dsbt.override.build.repos=true"
 
-if [[ -d $HOME/.local/bin ]]; then
+if [[ -d "$HOME/.local/bin" ]]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
@@ -37,4 +37,11 @@ export GOPATH="$HOME/Projects/go"
 if [[ $OSTYPE == darwin* ]]; then
     export GOROOT="/usr/local/opt/go/libexec"
 fi
-export PATH=${GOPATH//://bin:}/bin:$PATH
+export PATH="${GOPATH//://bin:}/bin:$PATH"
+
+# gem for ruby
+if [[ -d "$HOME/.gem/ruby/2.6.0/bin" ]]; then
+    export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
+elif [[ -d "/usr/local/lib/ruby/gems/2.6.0/bin" ]]; then
+     export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
+fi

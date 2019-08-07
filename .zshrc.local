@@ -17,7 +17,6 @@ if [[ $OSTYPE == darwin* ]]; then
     export PATH="$(/usr/local/bin/brew --prefix gnupg@1.4)/libexec/gpgbin:$PATH"
     export PATH="$(/usr/local/bin/brew --prefix openssl)/bin:$PATH"
     export PATH="$(/usr/local/bin/brew --prefix gnu-tar)/libexec/gnubin:$PATH"
-    export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 fi
 
 # proxy
