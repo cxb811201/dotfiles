@@ -110,10 +110,7 @@ fi
 # tell antigen that you're done
 antigen apply
 
-# nvm
-if [[ -f "$NVM_DIR/nvm.sh" ]]; then
-    . "$NVM_DIR/nvm.sh"
-fi
+# complete for nvm
 if [[ -f "$NVM_DIR/bash_completion" ]]; then
     . "$NVM_DIR/bash_completion"
 fi

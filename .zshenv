@@ -19,6 +19,10 @@ export RUSTUP_UPDATE_ROOT="https://mirrors.sjtug.sjtu.edu.cn/rust-static/rustup"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
+# nvm
+if [[ -f "$NVM_DIR/nvm.sh" ]]; then
+    . "$NVM_DIR/nvm.sh"
+fi
 
 # editor
 if command -v "emacsclient" &> /dev/null; then
