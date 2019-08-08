@@ -11,14 +11,6 @@ if [ -n "$INSIDE_EMACS" ]; then
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white,underline'
 fi
 
-# path
-if [[ $OSTYPE == darwin* ]]; then
-    export PATH="$(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin:$PATH"
-    export PATH="$(/usr/local/bin/brew --prefix gnupg@1.4)/libexec/gpgbin:$PATH"
-    export PATH="$(/usr/local/bin/brew --prefix openssl)/bin:$PATH"
-    export PATH="$(/usr/local/bin/brew --prefix gnu-tar)/libexec/gnubin:$PATH"
-fi
-
 # proxy
 function proxy() {
     # export http_proxy="http://127.0.0.1:8001"
