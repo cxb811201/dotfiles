@@ -126,6 +126,13 @@ ln -sf $DOTFILES/.zshrc $HOME/.zshrc
 # tmux
 ln -sf $DOTFILES/.tmux.conf.local $HOME/.tmux.conf.local
 
+# urxvt
+if [ $(get_os) != "macos" ]; then
+    ln -sf $DOTFILES/.Xresources $HOME/.Xresources
+    xrdb -merge $HOME/.Xresources
+    ln -sf $DOTFILES/.urxvt $HOME/.urxvt
+fi
+
 # npm
 ln -sf $DOTFILES/.npmrc $HOME/.npmrc
 
