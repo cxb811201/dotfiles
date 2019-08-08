@@ -120,7 +120,11 @@ print_info "installing dotfiles..."
 sync_git_repo github cxb811201/dotfiles $DOTFILES
 
 # zsh
-ln -sf $DOTFILES/.zshenv $HOME/.zshenv
+if [ $(get_os) == "macos" ]; then
+    ln -sf $DOTFILES/.zshenv $HOME/.zprofile
+else
+    ln -sf $DOTFILES/.zshenv $HOME/.zshenv
+fi
 ln -sf $DOTFILES/.zshrc $HOME/.zshrc
 
 # tmux
