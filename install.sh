@@ -128,6 +128,7 @@ fi
 ln -sf $DOTFILES/.zshrc $HOME/.zshrc
 
 # tmux
+ln -sf $DOTFILES/.tmux.conf $HOME/.tmux.conf
 ln -sf $DOTFILES/.tmux.conf.local $HOME/.tmux.conf.local
 
 # urxvt
@@ -163,11 +164,6 @@ else
     ln -sf $DOTFILES/.gitconfig_linux $HOME/.gitconfig
 fi
 print_success "dotfiles install successfully"
-
-print_info "installing tmux..."
-sync_git_repo github gpakosz/.tmux $TMUX optimizations
-ln -sf $TMUX/.tmux.conf $HOME/.tmux.conf
-print_success "tmux install successfully"
 
 print_info "installing spacemacs..."
 sync_git_repo github cxb811201/spacemacs $EMACSD develop
