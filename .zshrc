@@ -127,7 +127,7 @@ else
     if cmd_exists "yay"; then
         alias upgrade_antigen='yay -S --noconfirm antigen-git'
     else
-        alias upgrade_antigen='curl -fsSL https://git.io/antigen > $ANTIGEN/antigen.zsh.tmp && mv $ANTIGEN/antigen.zsh.tmp $ANTIGEN/antigen.zsh'
+        alias upgrade_antigen='curl -fsSL https://raw.githubusercontent.com/zsh-users/antigen/develop/bin/antigen.zsh > $ANTIGEN/antigen.zsh.tmp && mv $ANTIGEN/antigen.zsh.tmp $ANTIGEN/antigen.zsh'
     fi
 
     if cmd_exists "docker"; then

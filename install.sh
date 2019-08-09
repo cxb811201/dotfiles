@@ -111,7 +111,7 @@ else
             ;;
         *)
             mkdir -p $ANTIGEN
-            curl -fsSL https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh > $ANTIGEN/antigen.zsh.tmp && mv $ANTIGEN/antigen.zsh.tmp $ANTIGEN/antigen.zsh
+            curl -fsSL https://raw.githubusercontent.com/zsh-users/antigen/develop/bin/antigen.zsh > $ANTIGEN/antigen.zsh.tmp && mv $ANTIGEN/antigen.zsh.tmp $ANTIGEN/antigen.zsh
     esac
     print_success "antigen install successfully"
 fi
