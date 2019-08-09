@@ -84,6 +84,7 @@ antigen bundle zdharma/fast-syntax-highlighting
 
 # auto suggestions
 antigen bundle zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
 
 # auto pair
 antigen bundle hlissner/zsh-autopair
