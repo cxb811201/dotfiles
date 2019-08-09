@@ -173,6 +173,14 @@ else
 fi
 print_success "dotfiles install successfully"
 
+if [ $(get_os) != "macos" ]; then
+    print_info "installing fonts..."
+    mkdir -p $HOME/.local/share
+    cp -rf $DOTFILES/fonts $HOME/.local/share
+    fc-cache -f -v > /dev/null
+    print_success "fonts install successfully"
+fi
+
 print_info "installing spacemacs..."
 sync_git_repo github cxb811201/spacemacs $EMACSD develop
 sync_git_repo github cxb811201/spacemacs-private $SPACEMACSD
