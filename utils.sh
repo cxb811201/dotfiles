@@ -121,7 +121,7 @@ function get_os() {
             os="redhat"
         elif [ -f "/etc/arch-release" ]; then
             os="arch"
-        elif [ -f "/etc/gentoo-release"]; then
+        elif [ -f "/etc/gentoo-release" ]; then
             os="gentoo"
         fi
     else
