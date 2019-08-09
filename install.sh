@@ -146,6 +146,9 @@ fi
 # npm
 ln -sf $DOTFILES/.npmrc $HOME/.npmrc
 
+# vue
+ln -sf $DOTFILES/.vuerc $HOME/.vuerc
+
 # gem
 ln -sf $DOTFILES/.gemrc $HOME/.gemrc
 
