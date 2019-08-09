@@ -139,6 +139,7 @@ else
     fi
 fi
 
+alias goto_dotfiles='cd $DOTFILES'
 alias upgrade_dotfiles='cd $DOTFILES && git pull; cd - >/dev/null'
 alias upgrade_powerlevel10k='cd $ANTIGEN/bundles/romkatv/powerlevel10k && git pull; cd - >/dev/null'
 
