@@ -100,7 +100,7 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\uF7C6 "
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator user dir dir_writable vcs status)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir dir_writable vcs status)
 
 # local customizations, e.g. theme, plugins, aliases, etc.
 if [[ -f $HOME/.zshrc.local ]]; then
