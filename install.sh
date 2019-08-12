@@ -130,6 +130,7 @@ if [ $(get_os) == "macos" ]; then
 else
     ln -sf $DOTFILES/.zshenv $HOME/.zshenv
 fi
+ln -sf $DOTFILES/.zshrc.local $HOME/.zshrc.local
 ln -sf $DOTFILES/.zshrc $HOME/.zshrc
 
 # tmux
