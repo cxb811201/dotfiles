@@ -49,7 +49,7 @@ function check() {
 function clean() {
     for p in ${packages[@]}; do
         print_info "cleaning ${p}..."
-        go clean -i -i "${p}"
+        go clean -i -n "${p}"
         go clean -i "${p}"
     done
     print_success "clean all old packages successfully"
