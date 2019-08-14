@@ -28,6 +28,9 @@ packages=(
     github.com/derekparker/delve/cmd/dlv
     github.com/aarzilli/gdlv
 
+    mvdan.cc/gofumpt
+    mvdan.cc/gofumpt/gofumports
+
     golang.org/x/lint/golint
     golang.org/x/tools/cmd/guru
     golang.org/x/tools/cmd/gorename
