@@ -30,9 +30,9 @@ URxvt*cursorBlink:     true
 URxvt*depth: 32
 URxvt.background: [85]#323742
 
-*.foreground:   #eff0eb
+*.foreground:   #EFF0EB
 *.background:   #323742
-*.cursorColor:  #9aedfe
+*.cursorColor:  #9AEDFE
 
 *.color0:      #2E3436
 *.color8:      #555753
