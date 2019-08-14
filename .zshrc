@@ -123,6 +123,7 @@ if [[ $OSTYPE == darwin* ]]; then
     if cmd_exists "brew"; then
         alias upgrade_antigen='brew update antigen'
     fi
+    alias upgrade_oh_my_tmux='cd $HOME/.tmux && git pull; cd - >/dev/null'
 else
     alias ls='ls --color=tty --group-directories-first'
     if cmd_exists "yay"; then

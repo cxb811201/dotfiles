@@ -134,8 +134,12 @@ ln -sf $DOTFILES/.zshrc.local $HOME/.zshrc.local
 ln -sf $DOTFILES/.zshrc $HOME/.zshrc
 
 # tmux
-ln -sf $DOTFILES/.tmux.conf $HOME/.tmux.conf
-ln -sf $DOTFILES/.tmux.conf.local $HOME/.tmux.conf.local
+if [ $(get_os) == "macos" ]; then
+    ln -sf $DOTFILES/.tmux.conf.local_macos $HOME/.tmux.conf.local
+else
+    ln -sf $DOTFILES/.tmux.conf $HOME/.tmux.conf
+    ln -sf $DOTFILES/.tmux.conf.local $HOME/.tmux.conf.local
+fi
 
 # urxvt
 if [ $(get_os) != "macos" ]; then
@@ -174,7 +178,12 @@ else
 fi
 print_success "dotfiles install successfully"
 
-if [ $(get_os) != "macos" ]; then
+if [ $(get_os) == "macos" ]; then
+    print_info "installing oh_my_tmux..."
+    sync_git_repo github gpakosz/.tmux $HOME/.tmux
+    ln -sf $HOME/.tmux/.tmux.conf $HOME/.tmux.conf
+    print_success "oh_my_tmux install successfully"
+else
     print_info "installing fonts..."
     mkdir -p $HOME/.local/share
     cp -rf $DOTFILES/fonts $HOME/.local/share
