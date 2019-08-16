@@ -15,6 +15,11 @@ packages=(
     xsel
     urlview
 
+    # input method
+    fcitx-im
+    fcitx-rime
+    fcitx-configtool
+
     # font
     nerd-fonts-hack
     powerline-fonts-git
