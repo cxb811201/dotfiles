@@ -25,7 +25,7 @@ packages=(
     github.com/cweill/gotests/gotests
     github.com/google/gops
     github.com/haya14busa/goplay/cmd/goplay
-    github.com/derekparker/delve/cmd/dlv
+    github.com/go-delve/delve/cmd/dlv
     github.com/aarzilli/gdlv
 
     mvdan.cc/gofumpt
