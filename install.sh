@@ -123,6 +123,7 @@ sync_git_repo github cxb811201/dotfiles $DOTFILES
 if [ $(get_os) != "macos" ]; then
     ln -sf $DOTFILES/.xprofile $HOME/.xprofile
 fi
+ln -sf $DOTFILES/.editorconfig $HOME/.editorconfig
 
 # zsh
 if [ $(get_os) == "macos" ]; then
