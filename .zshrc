@@ -131,14 +131,6 @@ else
     else
         alias upgrade_antigen='curl -fsSL https://raw.githubusercontent.com/zsh-users/antigen/develop/bin/antigen.zsh > $ANTIGEN/antigen.zsh.tmp && mv $ANTIGEN/antigen.zsh.tmp $ANTIGEN/antigen.zsh'
     fi
-
-    if cmd_exists "docker"; then
-        alias docker='sudo docker'
-    fi
-
-    if cmd_exists "docker-compose"; then
-        alias docker-compose='sudo docker-compose'
-    fi
 fi
 
 alias goto_dotfiles='cd $DOTFILES'
