@@ -44,8 +44,8 @@ function check() {
         print_error_and_exit "go is not installed, please install first"
     else
         paths=(${GOPATH//\:/ })
-        for i in "${!paths[@]}"; do
-            mkdir -p "${paths[i]}"{/bin,/pkg,/src,}
+        for p in ${paths[@]}; do
+            mkdir -p "${p}"{/bin,/pkg,/src,}
         done
         print_success "go has been installed"
     fi
