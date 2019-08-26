@@ -10,7 +10,6 @@ GOPROXY="https://goproxy.io"
 if [ -z "$GOPATH" ]; then
     GOPATH="$HOME/go"
 fi
-echo $GOPATH
 
 packages=(
     github.com/stamblerre/gocode # for go mod
