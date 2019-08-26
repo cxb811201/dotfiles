@@ -44,7 +44,10 @@ function check() {
     if ! cmd_exists "go"; then
         print_error_and_exit "go is not installed, please install first"
     else
-        mkdir -p $GOPATH{/bin,/pkg,/src,}
+        paths=(${GOPATH//\:/ })
+        for i in "${!paths[@]}"; do
+            mkdir -p "${paths[i]}"{/bin,/pkg,/src,}
+        done
         print_success "go has been installed"
     fi
 }
