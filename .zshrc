@@ -75,6 +75,10 @@ if cmd_exists "cargo"; then
     antigen bundle cargo
 fi
 
+if cmd_exists "python"; then
+  antigen bundle djui/alias-tips
+fi
+
 # syntax highlighting
 # antigen bundle zsh-users/zsh-syntax-highlighting
 # ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern regexp)
