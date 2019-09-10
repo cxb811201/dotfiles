@@ -12,13 +12,16 @@ packages=(
     @vue/cli
     vue-language-server
     prettier
+    js-beautify
     import-js
+    stylelint
     eslint
     typescript
     tslint
     typescript-formatter
     typescript-language-server
     vscode-css-languageserver-bin
+    vscode-html-languageserver-bin
 )
 
 function check() {
