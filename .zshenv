@@ -3,7 +3,7 @@ export TERM="xterm-256color"
 
 # editor
 if command -v "emacsclient" &> /dev/null; then
-    export EDITOR='emacsclient -a "" -c'
+    export EDITOR='emacsclient -a "emacs"'
 else
     export EDITOR="vim"
 fi

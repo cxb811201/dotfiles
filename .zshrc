@@ -142,8 +142,8 @@ alias upgrade_dotfiles='cd $DOTFILES && git pull; cd - >/dev/null'
 alias upgrade_powerlevel10k='cd $ANTIGEN/bundles/romkatv/powerlevel10k && git pull; cd - >/dev/null'
 
 if cmd_exists "emacsclient"; then
-    alias e='emacsclient -a "" -n'
-    alias ec='emacsclient -a "" -n -c'
-    alias ef='emacsclient -a "" -c'
-    alias te='emacsclient -a “” -nw'
+    alias e="$EDITOR -n"
+    alias ec="$EDITOR -n -c"
+    alias ef="$EDITOR -c"
+    alias te="$EDITOR -a '' -nw"
 fi
