@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Use colors, but only if connected to a terminal, and that terminal supports them.
-if which tput >/dev/null 2>&1; then
+if command -v tput &> /dev/null; then
     ncolors=$(tput colors)
 fi
 if [ -t 1 ] && [ -n "$ncolors" ] && [ "$ncolors" -ge 8 ]; then
@@ -17,7 +17,9 @@ else
     GREEN=""
     YELLOW=""
     BLUE=""
+    # shellcheck disable=SC2034
     PURPLE=""
+    # shellcheck disable=SC2034
     BOLD=""
     NORMAL=""
 fi
@@ -152,13 +154,13 @@ function promote_yn() {
         print_error_and_exit "ERROR with promote_yn. Usage: promote_yn <Message> <Variable Name>"
     fi
 
-    eval ${2}=$NO
+    eval "${2}"=$NO
     print_question "$1 [Yn]"
-    read yn
+    read -r yn
     case $yn in
-        [Yy]*|'' ) eval ${2}=$YES;;
-        [Nn]* )    eval ${2}=$NO;;
-        *)         eval ${2}=$NO;;
+        [Yy]*|'' ) eval "${2}"=$YES;;
+        [Nn]* )    eval "${2}"=$NO;;
+        *)         eval "${2}"=$NO;;
     esac
 }
 
@@ -167,13 +169,13 @@ function promote_ny() {
         print_error_and_exit "ERROR with promote_ny. Usage: promote_ny <Message> <Variable Name>"
     fi
 
-    eval ${2}=$NO
+    eval "${2}"=$NO
     print_question "$1 [yN]"
-    read yn
+    read -r yn
     case $yn in
-        [Nn]*|'' ) eval ${2}=$NO;;
-        [Yy]* )    eval ${2}=$YES;;
-        *)         eval ${2}=$NO;;
+        [Nn]*|'' ) eval "${2}"=$NO;;
+        [Yy]* )    eval "${2}"=$YES;;
+        *)         eval "${2}"=$NO;;
     esac
 }
 
@@ -191,7 +193,9 @@ function sync_git_repo() {
         mkdir -p "$repo_path"
         git clone --recursive --depth 1 --branch $repo_branch "https://$repo_type.com/$repo_uri.git" "$repo_path"
     else
-        cd "$repo_path" && git pull origin $repo_branch && git submodule update --init --recursive; cd - >/dev/null
+        cd "$repo_path" && git pull origin $repo_branch && git submodule update --init --recursive
+        # shellcheck disable=SC2164
+        cd - >/dev/null
     fi
 }
 
