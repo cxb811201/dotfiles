@@ -70,10 +70,6 @@ if [[ $OSTYPE == darwin* ]]; then
         export PATH="/usr/local/opt/openssl/bin:$PATH"
     fi
 
-    if [[ -d "/usr/local/opt/gnupg@1.4/libexec/gpgbin" ]]; then
-        export PATH="/usr/local/opt/gnupg@1.4/libexec/gpgbin:$PATH"
-    fi
-
     if [[ -d "/usr/local/opt/gnu-tar/libexec/gnubin" ]]; then
         export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
     fi
