@@ -104,6 +104,10 @@ function zsh_exists() {
     cmd_exists "zsh"
 }
 
+function sys_os() {
+  printf "%s" "$(uname -s)"
+}
+
 function get_os() {
     local os=""
     local kernelName=""
