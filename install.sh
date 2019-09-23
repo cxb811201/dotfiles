@@ -5,7 +5,7 @@ DOTFILES=$HOME/.dotfiles
 ANTIGEN=$HOME/.antigen
 TMUX=$HOME/.tmux
 EMACSD=$HOME/.emacs.d
-SPACEMACSD=$HOME/.spacemacs.d
+DOOMD=$HOME/.doom.d
 
 BASE_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$BASE_DIR" ]]; then BASE_DIR="$PWD"; fi
@@ -224,19 +224,14 @@ else
     print_success "fonts install successfully"
 fi
 
-print_info "installing spacemacs..."
+print_info "installing doom-emacs..."
 # shellcheck disable=SC2086
-sync_git_repo github cxb811201/spacemacs $EMACSD develop
+sync_git_repo github hlissner/doom-emacs $EMACSD develop
 # shellcheck disable=SC2086
-sync_git_repo github cxb811201/spacemacs-private $SPACEMACSD
-
-if [ "$(get_os)" != "macos" ]; then
-    # shellcheck disable=SC2086
-    sed -i "s/     (osx/     ;; (osx/g" $SPACEMACSD/init.el
-    # shellcheck disable=SC2086
-    sed -i "s/          osx-command-as/     ;;      osx-command-as/g" $SPACEMACSD/init.el
-fi
-print_success "spacemacs install successfully"
+sync_git_repo github cxb811201/.doom.d $DOOMD
+# shellcheck disable=SC2086
+$EMACSD/bin/doom install --no-config --no-env --yes
+print_success "doom-emacs install successfully"
 
 # Entering zsh
 print_success "done. Enjoy!"
