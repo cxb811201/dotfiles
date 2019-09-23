@@ -3,9 +3,11 @@
 BASE_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$BASE_DIR" ]]; then BASE_DIR="$PWD"; fi
 
+# shellcheck source=/dev/null
 . "${BASE_DIR}/utils.sh"
 
-GO111MODULE=on
+# GO111MODULE=on
+# shellcheck disable=SC2034
 GOPROXY="https://goproxy.io"
 if [ -z "$GOPATH" ]; then
     GOPATH="$HOME/go"
@@ -43,8 +45,9 @@ function check() {
     if ! cmd_exists "go"; then
         print_error_and_exit "go is not installed, please install first"
     else
-        paths=(${GOPATH//\:/ })
-        for p in ${paths[@]}; do
+        # paths=(${GOPATH//\:/ })
+        IFS=: read -ra paths <<< "$GOPATH"
+        for p in "${paths[@]}"; do
             mkdir -p "${p}"{/bin,/pkg,/src,}
         done
         print_success "go has been installed"
@@ -52,16 +55,22 @@ function check() {
 }
 
 function clean() {
-    for p in ${packages[@]}; do
+    os=$(sys_os | tr '[:upper:]' '[:lower:]')
+    for p in "${packages[@]}"; do
         print_info "cleaning ${p}..."
         go clean -i -n "${p}"
         go clean -i "${p}"
+        IFS=: read -ra paths <<< "$GOPATH"
+        for gp in "${paths[@]}"; do
+            rm -rf "${gp}/src/${p}"
+            rm -rf "${gp}/pkg/${os}_amd64/${p}"
+        done
     done
     print_success "clean all old packages successfully"
 }
 
 function install() {
-    for p in ${packages[@]}; do
+    for p in "${packages[@]}"; do
         print_info "installing ${p}..."
         go get -u "${p}"
     done
@@ -70,8 +79,9 @@ function install() {
 function main() {
     check
 
-    promote_ny "clean all old packages?" "continue"
-    if [ $continue -eq $YES ]; then
+    promote_ny "clean all old packages?" "answer"
+    # shellcheck disable=SC2154
+    if [ "$answer" -eq "$YES" ]; then
         clean
     fi
 
