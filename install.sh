@@ -12,11 +12,11 @@ if [[ ! -d "$BASE_DIR" ]]; then BASE_DIR="$PWD"; fi
 
 . "${BASE_DIR}/utils.sh"
 
-if [ ! git_exist ]; then
+if ! git_exist; then
     print_error_and_exit "git is not installed"
 fi
 
-if [ ! curl_exist ]; then
+if ! curl_exist; then
     print_error_and_exit "curl is not installed"
 fi
 
