@@ -37,7 +37,7 @@ packages=(
     golang.org/x/tools/cmd/gorename
     golang.org/x/tools/cmd/goimports
     golang.org/x/tools/cmd/godoc
-    golang.org/x/tools/cmd/gopls
+    golang.org/x/tools/gopls
 )
 
 function check() {
