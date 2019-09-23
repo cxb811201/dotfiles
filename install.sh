@@ -10,6 +10,7 @@ SPACEMACSD=$HOME/.spacemacs.d
 BASE_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$BASE_DIR" ]]; then BASE_DIR="$PWD"; fi
 
+# shellcheck source=/dev/null
 . "${BASE_DIR}/utils.sh"
 
 if ! git_exist; then
@@ -88,7 +89,7 @@ fi
 print_info "checking antigne..."
 antigen_files=("${ANTIGEN}/antigen.zsh" "/usr/local/share/antigen/antigen.zsh" "/usr/share/zsh/share/antigen.zsh")
 found_antigen=0
-for file in ${antigen_files[@]}; do
+for file in "${antigen_files[@]}"; do
     if [[ -f $file ]]; then
         found_antigen=1
         break;
@@ -110,94 +111,129 @@ else
             yay -S --noconfirm antigen-git
             ;;
         *)
+            # shellcheck disable=SC2086
             mkdir -p $ANTIGEN
+            # shellcheck disable=SC2086
             curl -fsSL https://raw.githubusercontent.com/zsh-users/antigen/develop/bin/antigen.zsh > $ANTIGEN/antigen.zsh.tmp && mv $ANTIGEN/antigen.zsh.tmp $ANTIGEN/antigen.zsh
     esac
     print_success "antigen install successfully"
 fi
 
 print_info "installing dotfiles..."
+# shellcheck disable=SC2086
 sync_git_repo github cxb811201/dotfiles $DOTFILES
 
 # common
-if [ $(get_os) != "macos" ]; then
+if [ "$(get_os)" != "macos" ]; then
+    # shellcheck disable=SC2086
     ln -sf $DOTFILES/.xprofile $HOME/.xprofile
 fi
+# shellcheck disable=SC2086
 ln -sf $DOTFILES/.editorconfig $HOME/.editorconfig
 
 # zsh
-if [ $(get_os) == "macos" ]; then
+if [ "$(get_os)" == "macos" ]; then
+    # shellcheck disable=SC2086
     ln -sf $DOTFILES/.zshenv $HOME/.zprofile
 else
+    # shellcheck disable=SC2086
     ln -sf $DOTFILES/.zshenv $HOME/.zshenv
 fi
+# shellcheck disable=SC2086
 ln -sf $DOTFILES/.zshrc.local $HOME/.zshrc.local
+# shellcheck disable=SC2086
 ln -sf $DOTFILES/.zshrc $HOME/.zshrc
 
 # tmux
-if [ $(get_os) == "macos" ]; then
+if [ "$(get_os)" == "macos" ]; then
+    # shellcheck disable=SC2086
     ln -sf $DOTFILES/.tmux.conf.local_macos $HOME/.tmux.conf.local
 else
+    # shellcheck disable=SC2086
     ln -sf $DOTFILES/.tmux.conf $HOME/.tmux.conf
+    # shellcheck disable=SC2086
     ln -sf $DOTFILES/.tmux.conf.local $HOME/.tmux.conf.local
 fi
 
 # urxvt
-if [ $(get_os) != "macos" ]; then
+if [ "$(get_os)" != "macos" ]; then
+    # shellcheck disable=SC2086
     ln -sf $DOTFILES/.Xresources $HOME/.Xresources
+    # shellcheck disable=SC2086
     xrdb -merge $HOME/.Xresources
+    # shellcheck disable=SC2086
     ln -sf $DOTFILES/.urxvt $HOME/.urxvt
 fi
 
 # npm
+# shellcheck disable=SC2086
 ln -sf $DOTFILES/.npmrc $HOME/.npmrc
 
 # vue
+# shellcheck disable=SC2086
 ln -sf $DOTFILES/.vuerc $HOME/.vuerc
 
 # gem
+# shellcheck disable=SC2086
 ln -sf $DOTFILES/.gemrc $HOME/.gemrc
 
 # pypi
+# shellcheck disable=SC2086
 mkdir -p $HOME/.config/pip
+# shellcheck disable=SC2086
 ln -sf $DOTFILES/pip.conf $HOME/.config/pip/pip.conf
 
 # cargo for rust
+# shellcheck disable=SC2086
 mkdir -p $HOME/.cargo
+# shellcheck disable=SC2086
 ln -sf $DOTFILES/.cargo/config $HOME/.cargo/config
 
 # sbt
+# shellcheck disable=SC2086
 cp -rf $DOTFILES/.sbt $HOME
 
 # git
+# shellcheck disable=SC2086
 ln -sf $DOTFILES/.gitignore_global $HOME/.gitignore_global
+# shellcheck disable=SC2086
 ln -sf $DOTFILES/.gitconfig_global $HOME/.gitconfig_global
-if [ $(get_os) == "macos" ]; then
+if [ "$(get_os)" == "macos" ]; then
+    # shellcheck disable=SC2086
     ln -sf $DOTFILES/.gitconfig_macos $HOME/.gitconfig
 else
+    # shellcheck disable=SC2086
     ln -sf $DOTFILES/.gitconfig_linux $HOME/.gitconfig
 fi
 print_success "dotfiles install successfully"
 
-if [ $(get_os) == "macos" ]; then
+if [ "$(get_os)" == "macos" ]; then
     print_info "installing oh_my_tmux..."
-    sync_git_repo github gpakosz/.tmux $HOME/.tmux
-    ln -sf $HOME/.tmux/.tmux.conf $HOME/.tmux.conf
+    # shellcheck disable=SC2086
+    sync_git_repo github gpakosz/.tmux $TMUX
+    # shellcheck disable=SC2086
+    ln -sf $TMUX/.tmux.conf $HOME/.tmux.conf
     print_success "oh_my_tmux install successfully"
 else
     print_info "installing fonts..."
+    # shellcheck disable=SC2086
     mkdir -p $HOME/.local/share
+    # shellcheck disable=SC2086
     cp -rf $DOTFILES/fonts $HOME/.local/share
     fc-cache -f -v > /dev/null
     print_success "fonts install successfully"
 fi
 
 print_info "installing spacemacs..."
+# shellcheck disable=SC2086
 sync_git_repo github cxb811201/spacemacs $EMACSD develop
+# shellcheck disable=SC2086
 sync_git_repo github cxb811201/spacemacs-private $SPACEMACSD
 
-if [ $(get_os) != "macos" ]; then
+if [ "$(get_os)" != "macos" ]; then
+    # shellcheck disable=SC2086
     sed -i "s/     (osx/     ;; (osx/g" $SPACEMACSD/init.el
+    # shellcheck disable=SC2086
     sed -i "s/          osx-command-as/     ;;      osx-command-as/g" $SPACEMACSD/init.el
 fi
 print_success "spacemacs install successfully"
@@ -205,8 +241,8 @@ print_success "spacemacs install successfully"
 # Entering zsh
 print_success "done. Enjoy!"
 if zsh_exists; then
-    if [ "$SHELL" != "$(which zsh)" ]; then
-        chsh -s $(which zsh)
+    if [ "$SHELL" != "$(command -v zsh)" ]; then
+        chsh -s "$(command -v zsh)"
         print_info "you need to logout and login to enable zsh as the default shell."
     fi
     env zsh
