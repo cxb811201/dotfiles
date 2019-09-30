@@ -28,6 +28,7 @@ packages=(
     github.com/haya14busa/goplay/cmd/goplay
     github.com/go-delve/delve/cmd/dlv
     github.com/aarzilli/gdlv
+    github.com/motemen/gore/cmd/gore
 
     mvdan.cc/gofumpt
     mvdan.cc/gofumpt/gofumports
