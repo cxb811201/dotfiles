@@ -49,7 +49,7 @@ fi
 # golang
 export GO111MODULE=on
 export GOPROXY="https://goproxy.io"
-export GOPATH="$HOME/Projects/go"
+export GOPATH="$HOME/.go"
 if [[ $OSTYPE == darwin* ]]; then
     if [[ -d "/usr/local/opt/go/libexec" ]]; then
         export GOROOT="/usr/local/opt/go/libexec"
