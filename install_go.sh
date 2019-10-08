@@ -30,7 +30,6 @@ packages=(
     github.com/aarzilli/gdlv
     github.com/motemen/gore/cmd/gore
 
-    mvdan.cc/gofumpt
     mvdan.cc/gofumpt/gofumports
 
     golang.org/x/lint/golint
