@@ -16,7 +16,7 @@ fi
 packages=(
     github.com/stamblerre/gocode # for go mod
     github.com/rogpeppe/godef
-    github.com/haya14busa/gopkgs/cmd/gopkgs
+    github.com/uudashr/gopkgs/cmd/gopkgs
     github.com/zmb3/gogetdoc
     github.com/davidrjenni/reftools/cmd/fillstruct
     github.com/josharian/impl
