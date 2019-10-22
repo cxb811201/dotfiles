@@ -1,7 +1,7 @@
 # local configurations -*- mode: sh -*-
 
 # show system info
-if cmd_exists "neofetch"; then
+if cmd_exists "neofetch" && xset q &>/dev/null ; then
     neofetch
 fi
 
