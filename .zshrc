@@ -147,3 +147,11 @@ if cmd_exists "emacsclient"; then
     alias ef="$EDITOR -c"
     alias te="$EDITOR -a '' -nw"
 fi
+
+if cmd_exists "podman"; then
+    alias docker="podman"
+fi
+
+if cmd_exists "podman-compose"; then
+    alias docker-compose="podman-compose"
+fi
