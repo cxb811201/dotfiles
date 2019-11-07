@@ -40,8 +40,8 @@ if [[ -d "$HOME/.cargo/bin" ]]; then
 fi
 
 # nvm
+export NVM_NODEJS_ORG_MIRROR="https://npm.taobao.org/mirrors/node"
 export NVM_DIR="$HOME/.nvm"
-# nvm
 if [[ -f "$NVM_DIR/nvm.sh" ]]; then
     . "$NVM_DIR/nvm.sh"
 fi
