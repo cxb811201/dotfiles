@@ -165,6 +165,10 @@ if [ "$(get_os)" != "macos" ]; then
     ln -sf $DOTFILES/.urxvt $HOME/.urxvt
 fi
 
+# markdownlint
+# shellcheck disable=SC2086
+ln -sf $DOTFILES/.markdownlint.json $HOME/.markdownlint.json
+
 # npm
 # shellcheck disable=SC2086
 ln -sf $DOTFILES/.npmrc $HOME/.npmrc
