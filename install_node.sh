@@ -3,6 +3,7 @@
 BASE_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$BASE_DIR" ]]; then BASE_DIR="$PWD"; fi
 
+# shellcheck source=/dev/null
 . "${BASE_DIR}/utils.sh"
 
 NVM_DIR="$HOME/.nvm"
@@ -34,8 +35,10 @@ function check() {
         mkdir -p "$NVM_DIR"
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | METHOD="script" sh
         print_success "nvm install successfully"
+        # shellcheck source=/dev/null
         source "$NVM_DIR/nvm.sh"
     else
+      # shellcheck source=/dev/null
         source "$NVM_DIR/nvm.sh"
         print_success "nvm has been installed"
     fi
@@ -52,9 +55,9 @@ function install_nodejs() {
 }
 
 function install_packages() {
-    for p in ${packages[@]}; do
-        print_info "installing ${p}..."
-        npm install -g ${p}
+    for p in "${packages[@]}"; do
+        print_info "installing $p ..."
+        npm install -g "$p"
     done
 }
 
