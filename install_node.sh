@@ -18,10 +18,12 @@ packages=(
     eslint
     typescript
     tslint
+    markdownlint-cli
     typescript-formatter
     typescript-language-server
     vscode-css-languageserver-bin
     vscode-html-languageserver-bin
+    locate-java-home
 )
 
 function check() {
