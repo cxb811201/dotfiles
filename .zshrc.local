@@ -41,6 +41,8 @@ function sbt_noproxy() {
     echo "SBT http proxy off"
 }
 
+alias ssh_over_proxy='ssh -o ProxyCommand="nc -X 5 -x 127.0.0.1:1081 %h %p"'
+
 # homebrew
 if [[ $OSTYPE == darwin* ]]; then
     function set_homebrew_mirror() {
