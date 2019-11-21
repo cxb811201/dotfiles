@@ -27,12 +27,11 @@ packages=(
     github.com/google/gops
     github.com/haya14busa/goplay/cmd/goplay
     github.com/go-delve/delve/cmd/dlv
-    github.com/aarzilli/gdlv
     github.com/motemen/gore/cmd/gore
+    github.com/golang/protobuf/protoc-gen-go
 
     mvdan.cc/gofumpt/gofumports
 
-    golang.org/x/lint/golint
     golang.org/x/tools/cmd/guru
     golang.org/x/tools/cmd/gorename
     golang.org/x/tools/cmd/goimports
