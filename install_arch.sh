@@ -14,6 +14,7 @@ packages=(
     ripgrep
     xsel
     urlview
+    gnu-netcat
 
     # input method
     fcitx-im
