@@ -160,6 +160,10 @@ if [ "$(get_os)" != "macos" ]; then
     # shellcheck disable=SC2086
     ln -sf $DOTFILES/.Xresources $HOME/.Xresources
     # shellcheck disable=SC2086
+    mkdir -p $HOME/.config/fontconfig
+    # shellcheck disable=SC2086
+    ln -sf $DOTFILES/fonts.conf $HOME/.config/fontconfig/fonts.conf
+    # shellcheck disable=SC2086
     xrdb -merge $HOME/.Xresources
     # shellcheck disable=SC2086
     ln -sf $DOTFILES/.urxvt $HOME/.urxvt
@@ -234,7 +238,7 @@ sync_git_repo github hlissner/doom-emacs $EMACSD develop
 # shellcheck disable=SC2086
 sync_git_repo github cxb811201/.doom.d $DOOMD
 # shellcheck disable=SC2086
-$EMACSD/bin/doom install --no-config --no-env --yes
+$EMACSD/bin/doom install --no-config --no-env
 print_success "doom-emacs install successfully"
 
 # Entering zsh

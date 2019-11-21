@@ -3,6 +3,7 @@
 BASE_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$BASE_DIR" ]]; then BASE_DIR="$PWD"; fi
 
+# shellcheck disable=SC1090
 . "${BASE_DIR}/utils.sh"
 
 # packages
@@ -11,7 +12,6 @@ packages=(
     tmux
     emacs
     ripgrep
-    the_silver_searcher
     xsel
     urlview
 
@@ -23,6 +23,7 @@ packages=(
     # font
     nerd-fonts-hack
     powerline-fonts-git
+    noto-fonts-cjk
     wqy-zenhei
 )
 
@@ -33,9 +34,9 @@ function check() {
 }
 
 function install() {
-    for p in ${packages[@]}; do
+    for p in "${packages[@]}"; do
         print_info "installing ${p}..."
-        yay -S --noconfirm ${p}
+        yay -S --noconfirm "${p}"
     done
 }
 

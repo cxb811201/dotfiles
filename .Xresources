@@ -1,10 +1,11 @@
-Xft.dpi:        96
-Xft.antialias:  true
-Xft.rgba:       rgb
-Xft.hinting:    true
-Xft.hintstyle:  hintslight
-Xft.autohint:   false
-Xft.lcdfilter:  lcddefault
+Xft.dpi:            96
+Xft.antialias:      true
+Xft.autohint:       false
+Xft.hinting:        true
+Xft.hintstyle:      hintslight
+Xft.lcdfilter:      lcddefault
+Xft.rgba:           rgb
+Xft.embeddedbitmap: false
 
 URxvt.termName: xterm-256color
 
@@ -12,7 +13,7 @@ URxvt.termName: xterm-256color
 Rxvt.preeditType: OverTheSpot
 
 !! 字体设置
-URxvt*font: xft:Hack Nerd Font Mono:antialias=true:size=9,xft:WenQuanYi Zen Hei Mono:antialias=true:size=9
+URxvt*font: xft:Hack Nerd Font Mono:antialias=true:size=9,xft:Noto Sans Mono CJK SC:antialias=true:size=9
 
 !! 关闭iso14755, 让Ctrl+Shift能正常工作
 URxvt.iso14755:    false
