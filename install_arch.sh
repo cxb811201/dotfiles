@@ -23,9 +23,10 @@ packages=(
 
     # font
     nerd-fonts-hack
-    powerline-fonts-git
+    noto-fonts
     noto-fonts-cjk
     wqy-zenhei
+    wqy-microhei
 )
 
 function check() {
