@@ -150,8 +150,6 @@ if [ "$(get_os)" == "macos" ]; then
     ln -sf $DOTFILES/.tmux.conf.local_macos $HOME/.tmux.conf.local
 else
     # shellcheck disable=SC2086
-    ln -sf $DOTFILES/.tmux.conf $HOME/.tmux.conf
-    # shellcheck disable=SC2086
     ln -sf $DOTFILES/.tmux.conf.local $HOME/.tmux.conf.local
 fi
 
@@ -215,14 +213,14 @@ else
 fi
 print_success "dotfiles install successfully"
 
-if [ "$(get_os)" == "macos" ]; then
-    print_info "installing oh_my_tmux..."
-    # shellcheck disable=SC2086
-    sync_git_repo github gpakosz/.tmux $TMUX
-    # shellcheck disable=SC2086
-    ln -sf $TMUX/.tmux.conf $HOME/.tmux.conf
-    print_success "oh_my_tmux install successfully"
-else
+print_info "installing oh_my_tmux..."
+# shellcheck disable=SC2086
+sync_git_repo github gpakosz/.tmux $TMUX optimizations
+# shellcheck disable=SC2086
+ln -sf $TMUX/.tmux.conf $HOME/.tmux.conf
+print_success "oh_my_tmux install successfully"
+
+if [ "$(get_os)" != "macos" ]; then
     print_info "installing fonts..."
     # shellcheck disable=SC2086
     mkdir -p $HOME/.local/share

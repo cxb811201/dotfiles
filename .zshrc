@@ -127,7 +127,6 @@ if [[ $OSTYPE == darwin* ]]; then
     if cmd_exists "brew"; then
         alias upgrade_antigen='brew update antigen'
     fi
-    alias upgrade_oh_my_tmux='cd $HOME/.tmux && git pull; cd - >/dev/null'
 else
     alias ls='ls --color=tty --group-directories-first'
     if cmd_exists "yay"; then
@@ -137,9 +136,10 @@ else
     fi
 fi
 
+
 alias goto_dotfiles='cd $DOTFILES'
 alias upgrade_dotfiles='cd $DOTFILES && git pull; cd - >/dev/null'
-alias upgrade_powerlevel10k='cd $ANTIGEN/bundles/romkatv/powerlevel10k && git pull; cd - >/dev/null'
+alias upgrade_oh_my_tmux='cd $HOME/.tmux && git pull; cd - >/dev/null'
 
 if cmd_exists "emacsclient"; then
     alias e="$EDITOR -n"
