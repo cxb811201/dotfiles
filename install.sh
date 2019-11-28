@@ -188,6 +188,7 @@ ln -sf $DOTFILES/.gemrc $HOME/.gemrc
 mkdir -p $HOME/.config/pip
 # shellcheck disable=SC2086
 ln -sf $DOTFILES/pip.conf $HOME/.config/pip/pip.conf
+# shellcheck disable=SC2086
 ln -sf $DOTFILES/.pydistutils.cfg $HOME/.pydistutils.cfg
 
 # cargo for rust
