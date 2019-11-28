@@ -183,11 +183,12 @@ ln -sf $DOTFILES/.vuerc $HOME/.vuerc
 # shellcheck disable=SC2086
 ln -sf $DOTFILES/.gemrc $HOME/.gemrc
 
-# pypi
+# python
 # shellcheck disable=SC2086
 mkdir -p $HOME/.config/pip
 # shellcheck disable=SC2086
 ln -sf $DOTFILES/pip.conf $HOME/.config/pip/pip.conf
+ln -sf $DOTFILES/.pydistutils.cfg $HOME/.pydistutils.cfg
 
 # cargo for rust
 # shellcheck disable=SC2086
