@@ -217,7 +217,7 @@ print_success "dotfiles install successfully"
 
 print_info "installing oh_my_tmux..."
 # shellcheck disable=SC2086
-sync_git_repo github gpakosz/.tmux $TMUX optimizations
+sync_git_repo github gpakosz/.tmux $TMUX
 # shellcheck disable=SC2086
 ln -sf $TMUX/.tmux.conf $HOME/.tmux.conf
 print_success "oh_my_tmux install successfully"
