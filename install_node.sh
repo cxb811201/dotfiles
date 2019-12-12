@@ -24,6 +24,7 @@ packages=(
     typescript-language-server
     vscode-css-languageserver-bin
     vscode-html-languageserver-bin
+    vscode-json-languageserver
     locate-java-home
 )
 
