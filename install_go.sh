@@ -7,8 +7,10 @@ if [[ ! -d "$BASE_DIR" ]]; then BASE_DIR="$PWD"; fi
 . "${BASE_DIR}/utils.sh"
 
 # GO111MODULE=on
-# shellcheck disable=SC2034
-GOPROXY="https://goproxy.io"
+if [ -z "$GOPROXY" ]; then
+  GOPROXY="https://goproxy.cn,direct"
+fi
+
 if [ -z "$GOPATH" ]; then
     GOPATH="$HOME/go"
 fi
