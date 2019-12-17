@@ -16,6 +16,12 @@ packages=(
     urlview
     openbsd-netcat
 
+    # monitor
+    lm_sensors
+    i2c-tools
+    smartmontools
+    hddtemp
+
     # input method
     fcitx-im
     fcitx-rime
