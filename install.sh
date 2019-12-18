@@ -125,13 +125,8 @@ sync_git_repo github cxb811201/dotfiles $DOTFILES
 
 # common
 if [ "$(get_os)" != "macos" ]; then
-    if [ "$(get_os)" == "gentoo" ]; then
-        # shellcheck disable=SC2086
-        ln -sf $DOTFILES/.xprofile $HOME/.xprofile
-    else
-        # shellcheck disable=SC2086
-        ln -sf $DOTFILES/.pam_environment $HOME/.pam_environment
-    fi
+    # shellcheck disable=SC2086
+    ln -sf $DOTFILES/.pam_environment $HOME/.pam_environment
 fi
 # shellcheck disable=SC2086
 ln -sf $DOTFILES/.editorconfig $HOME/.editorconfig
