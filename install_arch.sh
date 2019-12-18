@@ -23,15 +23,17 @@ packages=(
     hddtemp
 
     # input method
-    fcitx-im
-    fcitx-rime
-    fcitx-configtool
+    fcitx5-git
+    fcitx5-gtk-git
+    fcitx5-qt5-git
+    fcitx5-chinese-addons-git
+    librime
+    brise
 
     # font
     nerd-fonts-hack
     noto-fonts
     noto-fonts-cjk
-    wqy-zenhei
     wqy-microhei
 )
 

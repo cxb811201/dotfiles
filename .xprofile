@@ -1,12 +1,6 @@
 # -*- mode: sh -*-
-if [ command -v fcitx5 &> /dev/null ]; then
-  export GTK_IM_MODULE="fcitx5"
-  export QT_IM_MODULE="fcitx5"
-  export XMODIFIERS="@im=fcitx5"
-elif [ command -v fcitx &> /dev/null ]; then
-  export GTK_IM_MODULE="fcitx"
-  export QT_IM_MODULE="fcitx"
-  export XMODIFIERS="@im=fcitx"
-fi
+export GTK_IM_MODULE="fcitx5"
+export QT_IM_MODULE="fcitx5"
+export XMODIFIERS="@im=fcitx5"
 
 # export RXVT_SOCKET="/tmp/urxvt-socket"

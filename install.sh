@@ -125,8 +125,13 @@ sync_git_repo github cxb811201/dotfiles $DOTFILES
 
 # common
 if [ "$(get_os)" != "macos" ]; then
-    # shellcheck disable=SC2086
-    ln -sf $DOTFILES/.xprofile $HOME/.xprofile
+    if [ "$(get_os)" == "gentoo" ]; then
+        # shellcheck disable=SC2086
+        ln -sf $DOTFILES/.xprofile $HOME/.xprofile
+    else
+        # shellcheck disable=SC2086
+        ln -sf $DOTFILES/.pam_environment $HOME/.pam_environment
+    fi
 fi
 # shellcheck disable=SC2086
 ln -sf $DOTFILES/.editorconfig $HOME/.editorconfig
@@ -165,6 +170,24 @@ if [ "$(get_os)" != "macos" ]; then
     xrdb -merge $HOME/.Xresources
     # shellcheck disable=SC2086
     ln -sf $DOTFILES/.urxvt $HOME/.urxvt
+fi
+
+# fcitx5
+if [ "$(get_os)" != "macos" ]; then
+    # shellcheck disable=SC2086
+    mkdir -p $HOME/.config/fcitx5/conf
+    # shellcheck disable=SC2086
+    ln -sf $DOTFILES/fcitx5/profile $HOME/.config/fcitx5/profile
+    # shellcheck disable=SC2086
+    ln -sf $DOTFILES/fcitx5/conf/classicui.conf $HOME/.config/fcitx5/conf/classicui.conf
+    # shellcheck disable=SC2086
+    mkdir -p $HOME/.config/autostart
+    # shellcheck disable=SC2086
+    ln -sf $DOTFILES/autostart/fcitx5.desktop $HOME/.config/autostart/fcitx5.desktop
+    # shellcheck disable=SC2086
+    mkdir -p $HOME/.local/share/fcitx5/themes
+    # shellcheck disable=SC2086
+    sync_git_repo github hosxy/fcitx5-dark-transparent $HOME/.local/share/fcitx5/themes/dark-transparent
 fi
 
 # markdownlint
