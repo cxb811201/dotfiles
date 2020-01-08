@@ -25,6 +25,7 @@ packages=(
     vscode-css-languageserver-bin
     vscode-html-languageserver-bin
     vscode-json-languageserver
+    bash-language-server
     locate-java-home
 )
 
