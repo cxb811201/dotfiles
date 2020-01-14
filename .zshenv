@@ -28,9 +28,6 @@ export SBT_OPTS="-Xms2048m -Xmx2048m -XX:ReservedCodeCacheSize=256m -XX:MaxMetas
 # coursier
 export COURSIER_REPOSITORIES="ivy2Local|https://mirrors.cloud.tencent.com/nexus/repository/maven-public|central|sonatype:releases"
 
-# metals
-export METALS_ENABLED="true"
-
 # brew
 if [[ $OSTYPE == darwin* ]]; then
     export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
