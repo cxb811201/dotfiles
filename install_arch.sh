@@ -35,6 +35,10 @@ packages=(
     noto-fonts
     noto-fonts-cjk
     wqy-microhei
+
+    # proxy
+    privoxy
+    v2ray
 )
 
 function check() {
