@@ -76,7 +76,11 @@ if cmd_exists "cargo"; then
 fi
 
 if cmd_exists "python"; then
-  antigen bundle djui/alias-tips
+    antigen bundle djui/alias-tips
+fi
+
+if cmd_exists "mvn"; then
+    antigen bundle mvn
 fi
 
 # syntax highlighting
