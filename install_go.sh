@@ -16,7 +16,7 @@ if [ -z "$GOPATH" ]; then
 fi
 
 packages=(
-    github.com/stamblerre/gocode # for go mod
+    github.com/visualfc/gocode # for go mod
     github.com/rogpeppe/godef
     github.com/uudashr/gopkgs/cmd/gopkgs
     github.com/zmb3/gogetdoc
