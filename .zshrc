@@ -83,6 +83,10 @@ if cmd_exists "mvn"; then
     antigen bundle mvn
 fi
 
+if cmd_exists "sbt"; then
+    antigen bundle sbt
+fi
+
 # syntax highlighting
 # antigen bundle zsh-users/zsh-syntax-highlighting
 # ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern regexp)
