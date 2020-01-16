@@ -114,6 +114,22 @@ fi
 # tell antigen that you're done
 antigen apply
 
+# complete for ssh_host
+function _all_ssh_host() {
+    _known_hosts=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })
+    if [[ -f "$HOME/.ssh/config" ]]; then
+        _conf_hosts=($(egrep '^Host.*' $HOME/.ssh/config | awk '{print $2}' | grep -v '^*' | sed -e 's/\.*\*$//'))
+    else
+        _conf_hosts=()
+    fi
+
+    _hosts=("$_known_hosts[@]" "$_conf_hosts[@]")
+
+    echo $_hosts
+}
+
+zstyle -e ':completion:*:hosts' hosts 'reply=($(_all_ssh_host))'
+
 # complete for nvm
 if [[ -f "$NVM_DIR/bash_completion" ]]; then
     . "$NVM_DIR/bash_completion"
