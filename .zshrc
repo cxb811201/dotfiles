@@ -152,6 +152,7 @@ else
     fi
 fi
 
+alias t='tail -f'
 
 alias goto_dotfiles='cd $DOTFILES'
 alias upgrade_dotfiles='cd $DOTFILES && git pull; cd - >/dev/null'
