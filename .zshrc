@@ -132,7 +132,7 @@ function _all_ssh_host() {
 
     local _hosts=("$_known_hosts[@]" "$_conf_hosts[@]")
 
-    echo $_hosts
+    echo ${(u)_hosts}
 }
 
 zstyle -e ':completion:*:hosts' hosts 'reply=($(_all_ssh_host))'
