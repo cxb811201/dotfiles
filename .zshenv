@@ -72,8 +72,24 @@ if [[ $OSTYPE == darwin* ]]; then
         export PATH="/usr/local/opt/openssl/bin:$PATH"
     fi
 
+    if [[ -d "/usr/local/opt/ruby/bin" ]]; then
+        export PATH="/usr/local/opt/ruby/bin:$PATH"
+    fi
+
     if [[ -d "/usr/local/opt/gnu-tar/libexec/gnubin" ]]; then
         export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+    fi
+
+    if [[ -d "/usr/local/opt/gnu-sed/libexec/gnubin" ]]; then
+      export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+    fi
+
+    if [[ -d "/usr/local/opt/findutils/libexec/gnubin" ]]; then
+        export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+    fi
+
+    if [[ -d "/usr/local/opt/gawk/libexec/gnubin" ]]; then
+        export PATH="/usr/local/opt/gawk/libexec/gnubin:$PATH"
     fi
 
     if [[ -d "/usr/local/opt/coreutils/libexec/gnubin" ]]; then
