@@ -80,6 +80,10 @@ if [[ $OSTYPE == darwin* ]]; then
         export PATH="/usr/local/opt/ruby/bin:$PATH"
     fi
 
+    if [[ -d "/usr/local/opt/gnu-indent/libexec/gnubin" ]]; then
+        export PATH="/usr/local/opt/gnu-indent/libexec/gnubin:$PATH"
+    fi
+
     if [[ -d "/usr/local/opt/gnu-tar/libexec/gnubin" ]]; then
         export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
     fi
