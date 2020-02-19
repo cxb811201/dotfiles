@@ -12,6 +12,7 @@ packages=(
     findutils
     gnu-tar
     gnu-sed
+    gnu-indent
     gawk
     gnupg
 
@@ -32,6 +33,7 @@ packages=(
     tig
     fd
     fzf
+    mycli
 
     ranger
     highlight
