@@ -18,7 +18,7 @@ fi
 packages=(
     github.com/visualfc/gocode # for go mod
     github.com/rogpeppe/godef
-    github.com/uudashr/gopkgs/cmd/gopkgs
+    github.com/uudashr/gopkgs/v2/cmd/gopkgs
     github.com/zmb3/gogetdoc
     github.com/davidrjenni/reftools/cmd/fillstruct
     github.com/josharian/impl
