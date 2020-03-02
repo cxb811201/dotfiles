@@ -25,9 +25,6 @@ fi
 export JAVA_OPTS="-XX:+UseNUMA -XX:+UseG1GC"
 export SBT_OPTS="-Xms2048m -Xmx2048m -XX:ReservedCodeCacheSize=256m -XX:MaxMetaspaceSize=512m -Dsbt.override.build.repos=true"
 
-# coursier
-export COURSIER_REPOSITORIES="ivy2Local|https://mirrors.cloud.tencent.com/nexus/repository/maven-public|central|sonatype:releases"
-
 # brew
 if [[ $OSTYPE == darwin* ]]; then
     export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
