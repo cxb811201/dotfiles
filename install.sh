@@ -219,6 +219,19 @@ ln -sf $DOTFILES/.cargo/config $HOME/.cargo/config
 # shellcheck disable=SC2086
 cp -rf $DOTFILES/.sbt $HOME
 
+# coursier
+if [ "$(get_os)" == "macos" ]; then
+    # shellcheck disable=SC2086
+    mkdir -p $HOME/Library/Preferences/Coursier
+    # shellcheck disable=SC2086
+    ln -sf $DOTFILES/coursier/mirror.properties $HOME/Library/Preferences/Coursier/mirror.properties
+else
+    # shellcheck disable=SC2086
+    mkdir -p $HOME/.config/coursier
+    # shellcheck disable=SC2086
+    ln -sf $DOTFILES/coursier/mirror.properties $HOME/.config/coursier/mirror.properties
+fi
+
 # git
 # shellcheck disable=SC2086
 ln -sf $DOTFILES/.gitignore_global $HOME/.gitignore_global
