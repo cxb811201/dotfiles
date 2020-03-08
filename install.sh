@@ -49,15 +49,6 @@ if [ "$(get_os)" == "macos" ]; then
         print_success "homebrew-cask-fonts add successfully"
     fi
 
-    print_info "checking homebrew-cask-versions..."
-    if [[ -d "$(brew --repo)/Library/Taps/homebrew/homebrew-cask-versions" ]]; then
-        print_success "homebrew-cask-versions has been added"
-    else
-        print_info "adding homebrew-cask-versions..."
-        brew tap homebrew/cask-versions
-        print_success "homebrew-cask-versions add successfully"
-    fi
-
     print_info "checking homebrew-cask-upgrade..."
     if [[ -d "$(brew --repo)/Library/Taps/buo/homebrew-cask-upgrade" ]]; then
         print_success "homebrew-cask-upgrade has been added"
@@ -74,6 +65,15 @@ if [ "$(get_os)" == "macos" ]; then
         print_info "adding homebrew-emacs-plus..."
         brew tap d12frosted/emacs-plus
         print_success "homebrew-emacs-plus add successfully"
+    fi
+
+    print_info "checking homebrew-adoptopenjdk..."
+    if [[ -d "$(brew --repos)/LibraryTaps/adoptopenjdk/homebrew-openjdk" ]]; then
+        print_success "homebrew-adoptopenjdk has been added"
+    else
+        print_info "adding home-adoptopenjdk..."
+        brew tap AdoptOpenJDK/openjdk
+        print_success "home-adoptopenjdk add successfully"
     fi
 
     print_info "check homebrew-bloop..."
