@@ -11,7 +11,7 @@ NVM_DIR="$HOME/.nvm"
 packages=(
     npm-check
     @vue/cli
-    vue-language-server
+    vls
     prettier
     js-beautify
     import-js
