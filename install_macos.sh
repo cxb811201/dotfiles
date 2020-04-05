@@ -46,7 +46,6 @@ packages=(
     ruby
     protobuf
 
-    ktlint
     shellcheck
 )
 
