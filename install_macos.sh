@@ -33,7 +33,6 @@ packages=(
     tig
     fd
     fzf
-    mycli
 
     ranger
     highlight
