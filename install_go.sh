@@ -70,7 +70,7 @@ function clean() {
 function install() {
     for p in "${packages[@]}"; do
         print_info "installing ${p}..."
-        go get -u "${p}"
+        go get "${p}"
     done
 }
 
