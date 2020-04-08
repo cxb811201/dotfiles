@@ -30,17 +30,6 @@ function noproxy() {
     echo "HTTP Proxy off"
 }
 
-function sbt_proxy() {
-    export OLD_SBT_OPTS=$SBT_OPTS
-    export SBT_OPTS="-Xms2048m -Xmx2048m -XX:ReservedCodeCacheSize=256m -XX:MaxMetaspaceSize=512m -Dcom.ning.http.client.AsyncHttpClientConfig.useProxyProperties=true -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=1081 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=1081 -Dhttp.nonProxyHosts=localhost|127.0.0.1|192.168.*|10.0.0.*|172.16.*"
-    echo "SBT http proxy on"
-}
-
-function sbt_noproxy() {
-    export SBT_OPTS="-Xms2048m -Xmx2048m -XX:ReservedCodeCacheSize=256m -XX:MaxMetaspaceSize=512m -Dsbt.override.build.repos=true"
-    echo "SBT http proxy off"
-}
-
 alias ssh_over_proxy='ssh -o ProxyCommand="nc -X 5 -x 127.0.0.1:1081 %h %p"'
 
 # homebrew
