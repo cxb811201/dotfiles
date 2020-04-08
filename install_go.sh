@@ -16,15 +16,12 @@ if [ -z "$GOPATH" ]; then
 fi
 
 packages=(
-    github.com/visualfc/gocode # for go mod
-    github.com/rogpeppe/godef
     github.com/uudashr/gopkgs/v2/cmd/gopkgs
     github.com/zmb3/gogetdoc
     github.com/davidrjenni/reftools/cmd/fillstruct
     github.com/josharian/impl
     github.com/golangci/golangci-lint/cmd/golangci-lint
     github.com/fatih/gomodifytags
-    github.com/godoctor/godoctor
     github.com/cweill/gotests/gotests
     github.com/google/gops
     github.com/haya14busa/goplay/cmd/goplay
