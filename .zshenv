@@ -49,6 +49,7 @@ export GO111MODULE=on
 export GOPROXY="https://goproxy.cn,direct"
 export GOPRIVATE="git.iobox.me"
 export GOPATH="$HOME/.go"
+export GOBIN="$GOPATH/bin"
 if [[ $OSTYPE == darwin* ]]; then
     if [[ -d "/usr/local/opt/go/libexec" ]]; then
         export GOROOT="/usr/local/opt/go/libexec"
