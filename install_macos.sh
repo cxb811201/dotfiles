@@ -42,7 +42,6 @@ packages=(
     bloop
 
     go
-    node
     ruby
     protobuf
 
