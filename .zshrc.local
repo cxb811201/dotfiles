@@ -13,12 +13,9 @@ fi
 
 # proxy
 function proxy() {
-    # export http_proxy="http://127.0.0.1:8001"
-    # export https_proxy="http://127.0.0.1:8001"
-    export http_proxy="socks5://127.0.0.1:1081"
-    export https_proxy="socks5://127.0.0.1:1081"
+    export http_proxy="http://127.0.0.1:7890"
+    export https_proxy="http://127.0.0.1:7890"
     export no_proxy="localhost,arch,127.0.0.1,10.0.0.*,172.16.*.*,192.168.*.*"
-    # export ALL_PROXY=socks5://127.0.0.1:1081
     echo "HTTP Proxy on"
 }
 
@@ -26,7 +23,6 @@ function noproxy() {
     unset http_proxy
     unset https_proxy
     unset no_proxy
-    # unset ALL_PROXY
     echo "HTTP Proxy off"
 }
 
