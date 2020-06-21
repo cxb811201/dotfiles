@@ -33,6 +33,7 @@ packages=(
     tig
     fd
     fzf
+    jq
 
     ranger
     highlight
