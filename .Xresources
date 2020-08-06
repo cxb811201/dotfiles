@@ -1,19 +1,19 @@
-Xft.dpi:            96
-Xft.antialias:      true
-Xft.autohint:       false
-Xft.hinting:        true
-Xft.hintstyle:      hintslight
-Xft.lcdfilter:      lcddefault
-Xft.rgba:           rgb
-Xft.embeddedbitmap: false
+Xft*dpi:            96
+Xft*antialias:      true
+Xft*autohint:       false
+Xft*hinting:        true
+Xft*hintstyle:      hintslight
+Xft*lcdfilter:      lcddefault
+Xft*rgba:           rgb
+Xft*embeddedbitmap: false
 
 URxvt.termName: xterm-256color
-
+URxvt.inputMethod: fcitx5
 !! Root(置底),OverTheSpot(跟随)
 Rxvt.preeditType: OverTheSpot
 
 !! 字体设置
-URxvt*font: xft:Hack Nerd Font Mono:antialias=true:size=9,xft:Noto Sans Mono CJK SC:antialias=true:size=9
+URxvt*font: xft:Hack Nerd Font Mono:antialias=true:size=9,xft:Noto Sans Symbols:style=Regular,xft:Noto Sans Mono CJK SC:antialias=true:size=9
 
 !! 关闭iso14755, 让Ctrl+Shift能正常工作
 URxvt.iso14755:    false
