@@ -34,7 +34,6 @@ packages=(
     nerd-fonts-hack
     noto-fonts
     noto-fonts-cjk
-    ttf-sarasa-gothic
     wqy-microhei
 
     # proxy
