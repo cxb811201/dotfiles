@@ -1,0 +1,63 @@
+#!/bin/bash
+
+DIR="$HOME/.config/rofi"
+
+rofi_command="rofi -theme $DIR/themes/network.rasi"
+
+## Get info
+IFACE="$(nmcli | grep -i interface | awk '/interface/ {print $2}')"
+STATUS="$(nmcli radio wifi)"
+
+active=""
+urgent=""
+
+if (ping -c 1 114.114.114.114 || ping -c 1 1.1.1.1) &>/dev/null; then
+	if [[ $STATUS == *"enable"* ]]; then
+        if [[ $IFACE == e* ]]; then
+            connected=""
+        else
+            connected=""
+        fi
+	active="-a 0"
+	SSID="$(iwgetid -r)"
+	PIP="$(wget --timeout=30 http://myip.ipip.net/ -qO - | grep -E -o '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')"
+	fi
+else
+    urgent="-u 0"
+    SSID="Disconnected"
+    PIP="NA"
+    connected=""
+fi
+
+## Icons
+bmon=""
+launch_cli=""
+launch=""
+
+options="$connected\n$bmon\n$launch_cli\n$launch"
+
+# Main
+if [ "X$SSID" = "X" ]; then
+  PRE="$PIP"
+else
+  PRE="$SSID : $PIP"
+fi
+chosen="$(echo -e "$options" | $rofi_command -p "$PRE" -dmenu $active $urgent -selected-row 1)"
+case $chosen in
+    $connected)
+		if [[ $STATUS == *"enable"* ]]; then
+			nmcli radio wifi off
+		else
+			nmcli radio wifi on
+		fi
+        ;;
+    $bmon)
+        alacritty -e bmon
+        ;;
+    $launch_cli)
+        alacritty -e nmtui
+        ;;
+    $launch)
+        nm-connection-editor
+        ;;
+esac

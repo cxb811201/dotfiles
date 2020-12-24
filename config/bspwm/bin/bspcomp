@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+cmd="compton"
+if command -v picom &> /dev/null; then
+  cmd="picom"
+fi
+
+# Terminate if compton is already running
+killall -q $cmd
+
+# Wait until the processes have been shut down
+while pgrep -u $UID -x $cmd >/dev/null; do sleep 1; done
+
+# Launch compton
+$cmd --config ~/.config/$cmd.conf &

@@ -32,19 +32,19 @@ function print_in_color() {
 }
 
 function print_in_red() {
-    print_in_color "$1" $RED
+    print_in_color "$1" "$RED"
 }
 
 function print_in_green() {
-    print_in_color "$1" $GREEN
+    print_in_color "$1" "$GREEN"
 }
 
 function print_in_yellow() {
-    print_in_color "$1" $YELLOW
+    print_in_color "$1" "$YELLOW"
 }
 
 function print_in_blue() {
-    print_in_color "$1" $BLUE
+    print_in_color "$1" "$BLUE"
 }
 
 function print_result() {
@@ -106,6 +106,10 @@ function zsh_exists() {
     cmd_exists "zsh"
 }
 
+function is_gui() {
+    [[ "$(get_os)" == "macos" ]] || xset q &>/dev/null
+}
+
 function sys_os() {
   printf "%s" "$(uname -s)"
 }
@@ -116,9 +120,9 @@ function get_os() {
 
     kernelName="$(uname -s)"
 
-    if [ "$kernelName" == "Darwin" ]; then
+    if [ "$kernelName" = "Darwin" ]; then
         os="macos"
-    elif [ "$kernelName" == "Linux" ]; then
+    elif [ "$kernelName" = "Linux" ]; then
         if [ -f "/etc/debian_version" ]; then
             os="debian"
         elif [ -f "/etc/redhat-release" ]; then
@@ -185,18 +189,78 @@ function sync_git_repo() {
     local repo_path="$3"
     local repo_branch="$4"
 
-    if [ -z "$repo_branch" ]; then
-        repo_branch="master"
-    fi
-
     if [ ! -e "$repo_path" ]; then
         mkdir -p "$repo_path"
-        git clone --recursive --depth 1 --branch $repo_branch "https://$repo_type.com/$repo_uri.git" "$repo_path"
+        if [ -z "$repo_branch" ]; then
+            git clone --recursive --depth 1 "https://$repo_type.com/$repo_uri.git" "$repo_path"
+        else
+            git clone --recursive --depth 1 --branch "$repo_branch" "https://$repo_type.com/$repo_uri.git" "$repo_path"
+        fi
     else
-        cd "$repo_path" && git pull origin $repo_branch && git submodule update --init --recursive
+        if [ -z "$repo_path" ]; then
+            cd "$repo_path" && git pull && git submodule update --init --recursive
+        else
+            cd "$repo_path" && git pull origin "$repo_branch" && git submodule update --init --recursive
+        fi
         # shellcheck disable=SC2164
         cd - >/dev/null
     fi
+}
+
+if [[ "$(get_os)" == "macos" ]]; then
+    function set_homebrew_mirror() {
+        cd "$(brew --repo)" || return
+        git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+        # shellcheck disable=SC2164
+        cd - >/dev/null
+
+        cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core" || return
+        git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+        # shellcheck disable=SC2164
+        cd - >/dev/null
+
+        cd "$(brew --repo)/Library/Taps/homebrew/homebrew-cask" || return
+        git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+        # shellcheck disable=SC2164
+        cd - >/dev/null
+
+        brew update
+    }
+
+    function reset_homebrew() {
+        cd "$(brew --repo)" || return
+        git remote set-url origin https://github.com/Homebrew/brew.git
+        # shellcheck disable=SC2164
+        cd - >/dev/null
+
+        cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core" || return
+        git remote set-url origin https://github.com/Homebrew/homebrew-core.git
+        # shellcheck disable=SC2164
+        cd - >/dev/null
+
+        cd "$(brew --repo)/Library/Taps/homebrew/homebrew-cask" || return
+        git remote set-url origin https://github.com/Homebrew/homebrew-cask.git
+        # shellcheck disable=SC2164
+        cd - >/dev/null
+
+        brew update
+    }
+fi
+
+function open_proxy() {
+    export http_proxy="http://127.0.0.1:8889"
+    export https_proxy="http://127.0.0.1:8889"
+    # export all_proxy="socks5://127.0.0.1:1089"
+    export no_proxy="localhost,arch,127.0.0.1,10.0.0.*,172.16.*.*,192.168.*.*"
+    echo "HTTP Proxy on"
+}
+
+function close_proxy() {
+    unset http_proxy
+    unset https_proxy
+    # unset all_proxy
+    unset no_proxy
+    echo "HTTP Proxy off"
 }
 
 check_os

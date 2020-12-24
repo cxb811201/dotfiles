@@ -6,8 +6,6 @@ if [[ ! -d "$BASE_DIR" ]]; then BASE_DIR="$PWD"; fi
 # shellcheck source=/dev/null
 . "${BASE_DIR}/utils.sh"
 
-NVM_DIR="$HOME/.nvm"
-
 packages=(
     npm-check
     @vue/cli
@@ -20,37 +18,25 @@ packages=(
     typescript
     tslint
     markdownlint-cli
+    md5-cli
     typescript-formatter
     typescript-language-server
     vscode-css-languageserver-bin
     vscode-html-languageserver-bin
     vscode-json-languageserver
     bash-language-server
+    pyright
     locate-java-home
 )
 
 function check() {
-    print_info "checking nvm..."
-    if [[ ! -f "$NVM_DIR/nvm.sh" ]]; then
-        print_warning "nvm is not installed"
-        print_info "installing nvm..."
-        mkdir -p "$NVM_DIR"
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | METHOD="script" sh
-        print_success "nvm install successfully"
-        # shellcheck source=/dev/null
-        source "$NVM_DIR/nvm.sh"
-    else
-      # shellcheck source=/dev/null
-        source "$NVM_DIR/nvm.sh"
-        print_success "nvm has been installed"
-    fi
-}
-
-function install_nodejs() {
     print_info "checking nodejs..."
     if ! cmd_exists "node"; then
         print_info "installing nodejs..."
-        nvm install node
+        export N_NODE_MIRROR=https://npm.taobao.org/mirrors/node
+        export N_PREFIX="$HOME/.n"
+        export PATH="$N_PREFIX/bin:$PATH"
+        curl -L https://git.io/n-install | bash -s -- -y -n -q
     else
         print_success "nodejs has been installed"
     fi
@@ -65,7 +51,6 @@ function install_packages() {
 
 function main() {
     check
-    install_nodejs
     install_packages
 }
 

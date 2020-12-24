@@ -1,0 +1,21 @@
+[Added Associations]
+image/png=viewnior.desktop;
+image/jpeg=viewnior.desktop;
+text/x-csrc=leafpad.desktop;
+application/x-shellscript=leafpad.desktop;
+image/gif=viewnior.desktop;
+image/svg+xml=viewnior.desktop;
+x-scheme-handler/http=exo-web-browser.desktop;
+x-scheme-handler/https=exo-web-browser.desktop;
+inode/directory=exo-file-manager.desktop;
+x-scheme-handler/trash=exo-file-manager.desktop;
+
+[Default Applications]
+image/gif=viewnior.desktop
+image/svg+xml=viewnior.desktop
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+

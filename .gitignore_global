@@ -1,9 +1,0 @@
-# -*- mode: gitignore -*-
-
-# os
-.DS_Store
-
-# other
-.~*
-*.bak
-*.log
