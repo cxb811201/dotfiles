@@ -59,7 +59,8 @@ if [ "$(get_os)" != "macos" ]; then
     ln -snf "$DOTFILES"/config/mimeapps.list "$HOME"/.config/mimeapps.list
     ln -snf "$DOTFILES"/config/libfm "$HOME"/.config/libfm
     ln -snf "$DOTFILES"/config/fontconfig "$HOME"/.config/fontconfig
-    ln -snf "$DOTFILES"/config/alacritty "$HOME"/.config/alacritty
+    mkdir -p "$HOME"/.config/alacritty
+    ln -snf "$DOTFILES"/config/alacritty/alacritty_linux.yml "$HOME"/.config/alacritty/alacritty.yml
     ln -snf "$DOTFILES"/config/bashtop "$HOME"/.config/bashtop
     ln -snf "$DOTFILES"/config/bspwm "$HOME"/.config/bspwm
     ln -snf "$DOTFILES"/config/dunst "$HOME"/.config/dunst
@@ -74,10 +75,16 @@ if [ "$(get_os)" != "macos" ]; then
     ln -snf "$DOTFILES"/fehbg "$HOME"/.fehbg
 else
     if [ ! -d "$HOME/Library/Preferences" ]; then
-        ln -snf "$DOTFILES"/config/coursier "$HOME"/Library/Preferences/Coursier
+        mkdir -p "$HOME"/Library/Preferences
+    else
+        rm -rf "$HOME"/Library/Preferences/Coursier
     fi
-    ln -snf "$DOTFILES"/.gitconfig_macos "$HOME"/.gitconfig
+    ln -snf "$DOTFILES"/config/coursier "$HOME"/Library/Preferences/Coursier
+    ln -snf "$DOTFILES"/gitconfig_macos "$HOME"/.gitconfig
+    mkdir -p "$HOME"/.config/alacritty
+    ln -snf "$DOTFILES"/config/alacritty/alacritty_macos.yml "$HOME"/.config/alacritty/alacritty.yml
 fi
+ln -snf "$DOTFILES"/config/ranger "$HOME"/.config/ranger
 
 print_success "dotfiles install successfully"
 

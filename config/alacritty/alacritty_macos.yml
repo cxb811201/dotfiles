@@ -1,0 +1,83 @@
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 5
+    y: 24
+  dynamic_padding: true
+  decorations: transparent
+  startup_mode: Windowed
+  title: Alacritty
+  dynamic_title: true
+
+scrolling:
+  history: 10000
+  multiplier: 10
+
+font:
+  normal:
+    family: Sarasa Mono SC Nerd
+    style: Regular
+  bold:
+    family: Sarasa Mono SC Nerd
+    style: Bold
+  italic:
+    family: Sarasa Mono SC Nerd
+    style: Italic
+  bold_italic:
+    family: Sarasa Mono SC Nerd
+    style: Bold Italic
+  size: 14.0
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+
+draw_bold_text_with_bright_colors: true
+
+background_opacity: 0.8
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: false
+
+live_config_reload: true
+
+shell:
+  program: /bin/zsh
+  args:
+    - --login
+
+mouse:
+  hide_when_typing: true
+
+key_bindings:
+  - { key: F,  mods: Alt,           chars: "\x1bf"                       }
+  - { key: B,  mods: Alt,           chars: "\x1bb"                       }
+  - { key: D,  mods: Alt,           chars: "\x1bd"                       }
+colors:
+  # COLORSCHEME: color.yml
+  primary:
+    background: '#2E3440'
+    foreground: '#D8DEE9'
+  normal:
+    black: '#3B4252'
+    red: '#BF616A'
+    green: '#A3BE8C'
+    yellow: '#EBCB8B'
+    blue: '#81A1C1'
+    magenta: '#B48EAD'
+    cyan: '#88C0D0'
+    white: '#E5E9F0'
+  bright:
+    black: '#4C566A'
+    red: '#BF616A'
+    green: '#A3BE8C'
+    yellow: '#EBCB8B'
+    blue: '#81A1C1'
+    magenta: '#B48EAD'
+    cyan: '#8FBCBB'
+    white: '#ECEFF4'
