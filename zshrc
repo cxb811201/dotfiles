@@ -8,6 +8,7 @@ source ~/.zinit/bin/zinit.zsh
 
 zinit light-mode for \
   is-snippet OMZ::lib/history.zsh \
+  is-snippet OMZ::lib/key-bindings.zsh \
   MichaelAquilina/zsh-you-should-use \
   atinit"
     zstyle :history-search-multi-word page-size 5
