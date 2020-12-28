@@ -25,7 +25,7 @@ getcolors () {
 }
 
 bspbar () {
-	cat > $HOME/.config/polybar/colors <<- EOF
+	cat > $HOME/.config/polybar/colors <<-EOF
 	[color]
 
 	FOREGROUND = ${FOREGROUND}
@@ -51,7 +51,7 @@ bspbar () {
 
 bspterm () {
 	mkdir -p ${TMPDIR-/tmp}/alacritty
-	cat > ${TMPDIR-/tmp}/alacritty/color.yml <<- EOF
+	cat > ${TMPDIR-/tmp}/alacritty/color.yml <<-EOF
 	colors:
 	  primary:
 	    background: '${BACKGROUND}'
@@ -80,7 +80,7 @@ bspterm () {
 }
 
 bsprofi () {
-	cat > $HOME/.config/rofi/themes/colors.rasi <<- EOF
+	cat > $HOME/.config/rofi/themes/colors.rasi <<-EOF
 	* {
 		background:			${BACKGROUND};
 		foreground:			${FOREGROUND};
@@ -94,31 +94,31 @@ bsprofi () {
 
 bspbashtop () {
   cat > $HOME/.config/bashtop/themes/default.theme <<-EOF
-theme[main_fg]="${FOREGROUND}"
-theme[title]="${ALTCYAN}"
-theme[hi_fg]=""
-theme[selected_bg]="${ALTBLACK}"
-theme[selected_fg]="${ALTWHITE}"
-theme[inactive_fg]="${ALTBLACK}"
-theme[proc_misc]=""
-theme[cpu_box]="${ALTBLACK}"
-theme[mem_box]="${ALTBLACK}"
-theme[net_box]="${ALTBLACK}"
-theme[proc_box]="${ALTBLACK}"
-theme[div_line]="${ALTBLACK}"
-theme[temp_start]="${ALTBLUE}"
-theme[temp_mid]="${CYAN}"
-theme[temp_end]="${ALTWHITE}"
-theme[cpu_start]="${ALTBLUE}"
-theme[cpu_mid]="${CYAN}"
-theme[cpu_end]="${ALTWHITE}"
-theme[free_start]="${ALTBLUE}"
-theme[free_mid]="${CYAN}"
-theme[free_end]="${ALTWHITE}"
-theme[cached_start]="${ALTBLUE}"
-theme[cached_mid]="${CYAN}"
-theme[cached_end]="${ALTWHITE}"
-EOF
+	theme[main_fg]="${FOREGROUND}"
+	theme[title]="${ALTCYAN}"
+	theme[hi_fg]=""
+	theme[selected_bg]="${ALTBLACK}"
+	theme[selected_fg]="${ALTWHITE}"
+	theme[inactive_fg]="${ALTBLACK}"
+	theme[proc_misc]=""
+	theme[cpu_box]="${ALTBLACK}"
+	theme[mem_box]="${ALTBLACK}"
+	theme[net_box]="${ALTBLACK}"
+	theme[proc_box]="${ALTBLACK}"
+	theme[div_line]="${ALTBLACK}"
+	theme[temp_start]="${ALTBLUE}"
+	theme[temp_mid]="${CYAN}"
+	theme[temp_end]="${ALTWHITE}"
+	theme[cpu_start]="${ALTBLUE}"
+	theme[cpu_mid]="${CYAN}"
+	theme[cpu_end]="${ALTWHITE}"
+	theme[free_start]="${ALTBLUE}"
+	theme[free_mid]="${CYAN}"
+	theme[free_end]="${ALTWHITE}"
+	theme[cached_start]="${ALTBLUE}"
+	theme[cached_mid]="${CYAN}"
+	theme[cached_end]="${ALTWHITE}"
+	EOF
 }
 
 main () {
