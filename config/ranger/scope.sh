@@ -25,7 +25,7 @@ width="$2"     # Width of the preview pane (number of fitting characters)
 height="$3"    # Height of the preview pane (number of fitting characters
 cachePath="$4" # Full path that should be used to cache image preview
 
-maxln=200    # Stop after $maxln lines.  Can be used like ls | head -n $maxln
+maxln=500    # Stop after $maxln lines.  Can be used like ls | head -n $maxln
 
 # Find out something about the file:
 mimetype=$(file --mime-type -Lb "$path")
