@@ -38,6 +38,9 @@ zinit light-mode lucid for \
 # snippet
 zinit ice atinit"ZSH_TMUX_FIXTERM=false"
 zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh
+if brew_exists ; then
+   zinit snippet OMZ::plugins/brew/brew.plugin.zsh
+fi
 
 if [[ -z $INSIDE_EMACS ]] && is_gui ; then
   zinit ice from"gh" depth=1
