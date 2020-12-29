@@ -87,7 +87,8 @@ bspc rule -a Pcmanfm desktop='^8' follow=on focus=on
 # 9 > settings
 bspc rule -a GParted desktop='^9' follow=on focus=on
 declare -a settings=(Lxappearance Lxtask Lxrandr Arandr \
-System-config-printer.py Pavucontrol Exo-helper-1 qv2ray)
+System-config-printer.py Pavucontrol Exo-helper-1 qv2ray \
+Xfce4-settings-manager)
 for i in ${settings[@]}; do
    bspc rule -a $i desktop='^9' state=floating follow=on focus=on
 done
