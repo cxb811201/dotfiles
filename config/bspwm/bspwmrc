@@ -75,7 +75,7 @@ done
 
 # 7 > office
 declare -a office=(Geany Leafpad Gucharmap Evince \
-Wps libreoffice-writer libreoffice-calc libreoffice-impress \
+Wps Et Wpp Wpspdf libreoffice-writer libreoffice-calc libreoffice-impress \
 libreoffice-startcenter libreoffice Soffice *:libreofficedev *:soffice)
 for i in ${office[@]}; do
    bspc rule -a $i desktop='^7' follow=on focus=on
