@@ -2,6 +2,7 @@
 
 # variables
 DOTFILES=$HOME/.dotfiles
+TMUX=$HOME/.tmux
 ZINIT=$HOME/.zinit
 ZINITBIN=$HOME/.zinit/bin
 EMACSD=$HOME/.emacs.d
@@ -88,6 +89,7 @@ ln -snf "$DOTFILES"/config/ranger "$HOME"/.config/ranger
 
 print_success "dotfiles install successfully"
 
+# fonts
 print_info "installing fonts..."
 if [ "$(get_os)" != "macos" ]; then
     mkdir -p "$HOME"/.local/share
@@ -99,6 +101,7 @@ else
 fi
 print_success "fonts install successfully"
 
+# fcitx5
 if [ "$(get_os)" != "macos" ]; then
     print_info "configure fcitx5..."
     cp -rf "$DOTFILES"/config/fcitx5 "$HOME"/.config
@@ -109,6 +112,14 @@ if [ "$(get_os)" != "macos" ]; then
     fi
     print_success "fcitx5 configuration successfully"
 fi
+
+# tmux
+print_info "installing oh_my_tmux..."
+ln -snf "$DOTFILES"/tmux.conf.local "$HOME"/.tmux.conf.local
+if [ ! -d "$TMUX" ]; then
+    sync_git_repo github gpakosz/.tmux "$TMUX"
+fi
+print_success "oh_my_tmux install successfully"
 
 # zinit and zsh
 print_info "installing zinit..."
