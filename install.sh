@@ -56,7 +56,7 @@ if [ "$(get_os)" != "macos" ]; then
     ln -snf "$DOTFILES"/config/coursier "$HOME"/.config/coursier
     ln -snf "$DOTFILES"/gitconfig_linux "$HOME"/.gitconfig
     cp -rf "$DOTFILES"/gtkrc-2.0 "$HOME"/.gtkrc-2.0
-    cp -rf "$DOTFILES"/config/gtk-3.0 "$HOME"/.config/gtk-3.0
+    cp -rf "$DOTFILES"/config/gtk-3.0/* "$HOME"/.config/gtk-3.0
     cp -rf "$DOTFILES"/config/mimeapps.list "$HOME"/.config/mimeapps.list
     ln -snf "$DOTFILES"/config/libfm "$HOME"/.config/libfm
     ln -snf "$DOTFILES"/config/fontconfig "$HOME"/.config/fontconfig
