@@ -128,7 +128,7 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 xfce4-power-manager &
 
 # Fix cursor
-xsetroot -cursor_name left_ptr
+xsetroot -cursor_name left_ptr &
 
 # Restore wallpaper
 bash $HOME/.fehbg
