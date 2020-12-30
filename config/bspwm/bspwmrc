@@ -55,22 +55,22 @@ for i in ${browser[@]}; do
    bspc rule -a $i desktop='^3' follow=on focus=on
 done
 
-# 4 > database
-declare -a database=(Mysql-workbench-bin)
-for i in ${database[@]}; do
-   bspc rule -a $i desktop='^4' follow=on focus=on
-done
-
-# 5 > chat
+# 4 > chat
 declare -a chat=(TelegramDesktop wechat.exe Wine)
 for i in ${chat[@]}; do
-  bspc rule -a $i desktop='^5' state=floating follow=on focus=on
+  bspc rule -a $i desktop='^4' state=floating follow=on focus=on
 done
 
-# 6 > media
+# 5 > media
 declare -a media=(Audacity vlc mpv mplayer lxmusic Gimp Gimp-2.8 \
 netease-cloud-music)
 for i in ${media[@]}; do
+   bspc rule -a $i desktop='^5' follow=on focus=on
+done
+
+# 6 > database
+declare -a database=(Mysql-workbench-bin)
+for i in ${database[@]}; do
    bspc rule -a $i desktop='^6' follow=on focus=on
 done
 
