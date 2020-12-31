@@ -72,6 +72,8 @@ if [ "$(get_os)" != "macos" ]; then
     ln -snf "$DOTFILES"/config/compton.conf "$HOME"/.config/compton.conf
     mkdir -p "$HOME"/.mpd
     cp -rf "$DOTFILES"/mpd/* "$HOME"/.mpd
+    mkdir -p "$HOME"/.mpd/playlists
+    touch "$HOME"/mpd/{mpd.db,mpd.log,mpdstate}
     ln -snf "$DOTFILES"/ncmpcpp "$HOME"/.ncmpcpp
     ln -snf "$DOTFILES"/fehbg "$HOME"/.fehbg
 else
