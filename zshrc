@@ -51,7 +51,7 @@ if [[ -z $INSIDE_EMACS ]] && is_gui ; then
   zinit ice from"gh" depth=1
   zinit light romkatv/powerlevel10k
 else
-  if ! (xset q &>/dev/null) ; then
+  if ! is_gui ; then
     PURE_PROMPT_SYMBOL=">"
   fi
   zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
