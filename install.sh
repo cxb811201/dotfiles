@@ -59,6 +59,7 @@ if [ "$(get_os)" != "macos" ]; then
     cp -rf "$DOTFILES"/config/gtk-3.0/* "$HOME"/.config/gtk-3.0
     cp -rf "$DOTFILES"/config/mimeapps.list "$HOME"/.config/mimeapps.list
     ln -snf "$DOTFILES"/config/libfm "$HOME"/.config/libfm
+    ln -nsf "$DOTFILES"/config/pcmanfm "$HOME"/.config/pcmanfm
     ln -snf "$DOTFILES"/config/fontconfig "$HOME"/.config/fontconfig
     mkdir -p "$HOME"/.config/alacritty
     ln -snf "$DOTFILES"/config/alacritty/alacritty_linux.yml "$HOME"/.config/alacritty/alacritty.yml
