@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# A script to get colours from xrdb & deploy it to polybar, alacritty & rofi.
+# A script to get colours from xrdb & deploy it to polybar, kitty & rofi.
 
 getcolors () {
 	FOREGROUND="$(xrdb -query | grep 'foreground:'| awk '{print $NF}')"
@@ -50,33 +50,29 @@ bspbar () {
 }
 
 bspterm () {
-	mkdir -p ${TMPDIR-/tmp}/alacritty
-	cat > ${TMPDIR-/tmp}/alacritty/color.yml <<-EOF
-	colors:
-	  primary:
-	    background: '${BACKGROUND}'
-	    foreground: '${FOREGROUND}'
-	  normal:
-	    black:   '${BLACK}'
-	    red:     '${RED}'
-	    green:   '${GREEN}'
-	    yellow:  '${YELLOW}'
-	    blue:    '${BLUE}'
-	    magenta: '${MAGENTA}'
-	    cyan:    '${CYAN}'
-	    white:   '${WHITE}'
-	  bright:
-	    black:   '${ALTBLACK}'
-	    red:     '${ALTRED}'
-	    green:   '${ALTGREEN}'
-	    yellow:  '${ALTYELLOW}'
-	    blue:    '${ALTBLUE}'
-	    magenta: '${ALTMAGENTA}'
-	    cyan:    '${ALTCYAN}'
-	    white:   '${ALTWHITE}'
+	cat > $HOME/.config/kitty/colors.conf <<-EOF
+	background ${BACKGROUND}
+	foreground ${FOREGROUND}
+	cursor ${CURSOR}
+	color0 ${BLACK}
+	color1 ${RED}
+	color2 ${GREEN}
+	color3 ${YELLOW}
+	color4 ${BLUE}
+	color5 ${MAGENTA}
+	color6 ${CYAN}
+	color7 ${WHITE}
+	color8 ${ALTBLACK}
+	color9 ${ALTRED}
+	color10 ${ALTGREEN}
+	color11 ${ALTYELLOW}
+	color12 ${ALTBLUE}
+	color13 ${ALTMAGENTA}
+	color14 ${ALTCYAN}
+	color15 ${ALTWHITE}
 	EOF
 
-  alacritty-colorscheme -c $HOME/.config/alacritty/alacritty.yml -C "${TMPDIR-/tmp}/alacritty" -a color.yml
+	find /tmp -maxdepth 1 -name 'kitty*' -exec kitty @ --to unix:{} set-colors --all $HOME/.config/kitty/colors.conf \;
 }
 
 bsprofi () {

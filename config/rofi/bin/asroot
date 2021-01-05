@@ -5,7 +5,7 @@ DIR="$HOME/.config/rofi"
 rofi_command="rofi -theme $DIR/themes/asroot.rasi"
 
 # Apps
-terminal=" Alacritty"
+terminal=" Kitty"
 files=" Pcmanfm"
 editor=" Leafpad"
 vim=" Vim"
@@ -16,7 +16,7 @@ options="$terminal\n$files\n$editor\n$vim"
 chosen="$(echo -e "$options" | $rofi_command -p "Run as root(#)" -dmenu -selected-row 0)"
 case $chosen in
     $terminal)
-        apps_as_root 'alacritty --class alacritty-float,Alacritty-float'
+        apps_as_root 'kitty --class kitty-float'
         ;;
     $files)
         apps_as_root 'dbus-run-session pcmanfm'
@@ -25,7 +25,7 @@ case $chosen in
         apps_as_root leafpad
         ;;
     $vim)
-        apps_as_root 'alacritty --class alacritty-float,Alacritty-float -e vim'
+        apps_as_root 'kitty --class kitty-float -e vim'
         ;;
 esac
 

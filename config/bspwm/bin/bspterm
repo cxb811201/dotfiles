@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# launch alacritty with other config
+# launch kitty with other config
 if [ "$1" == "-f" ]; then
-	alacritty --class alacritty-float,Alacritty-float
+	kitty --class kitty-float
 else
-	alacritty
+	kitty
 fi

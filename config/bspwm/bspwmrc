@@ -44,7 +44,7 @@ bspc config focus_follows_pointer true
 bspc rule -r *:*
 
 # 1 > terminal
-bspc rule -a Alacritty desktop='^1' follow=on focus=on
+bspc rule -a kitty desktop='^1' follow=on focus=on
 
 # 2 > code
 bspc rule -a Emacs desktop='^2' state=tiled follow=on focus=on
@@ -95,7 +95,7 @@ for i in ${settings[@]}; do
 done
 
 # special rules
-bspc rule -a Alacritty-float state=floating follow=on focus=on
+bspc rule -a kitty-float state=floating follow=on focus=on
 bspc rule -a Onboard state=floating follow=on focus=on
 bspc rule -a Audacious state=floating follow=on focus=on
 bspc rule -a Firefox:Places state=floating follow=on focus=on

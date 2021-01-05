@@ -52,10 +52,10 @@ case $chosen in
 		fi
         ;;
     $bmon)
-        alacritty -e bmon
+        kitty -e bmon
         ;;
     $launch_cli)
-        alacritty -e nmtui
+        kitty -e nmtui
         ;;
     $launch)
         nm-connection-editor
