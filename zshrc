@@ -46,6 +46,7 @@ zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh
 if brew_exists ; then
    zinit snippet OMZ::plugins/brew/brew.plugin.zsh
 fi
+zinit snippet OMZ::plugins/web-search/web-search.plugin.zsh
 
 if [[ -z $INSIDE_EMACS ]] && is_gui ; then
   zinit ice from"gh" depth=1
