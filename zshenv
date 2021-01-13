@@ -21,6 +21,7 @@ export SBT_OPTS="-Xms2048m -Xmx2048m -XX:ReservedCodeCacheSize=256m -XX:MaxMetas
 # brew
 if [[ $OSTYPE == darwin* ]]; then
     export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
+    export HOMEBREW_NO_AUTO_UPDATE=1
 fi
 
 # rust
