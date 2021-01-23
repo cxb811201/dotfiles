@@ -31,7 +31,6 @@ fi
 print_info "installing dotfiles..."
 # common
 ln -snf "$DOTFILES"/authinfo.gpg "$HOME"/.authinfo.gpg
-ln -snf "$DOTFILES"/editorconfig "$HOME"/.editorconfig
 ln -snf "$DOTFILES"/vimrc "$HOME"/.vimrc
 ln -snf "$DOTFILES"/markdownlint.json "$HOME"/.markdownlint.json
 ln -snf "$DOTFILES"/npmrc "$HOME"/.npmrc
