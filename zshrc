@@ -129,6 +129,10 @@ function decode64() {
 alias e64=encode64
 alias d64=decode64
 
+if [[ "$INSIDE_EMACS" = "vterm" ]]; then
+  alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
+fi
+
 # show system info
 if cmd_exists "neofetch" && is_gui ; then
     neofetch
