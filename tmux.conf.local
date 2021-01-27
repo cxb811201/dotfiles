@@ -312,7 +312,6 @@ tmux_conf_battery_status_discharging="↓"    # U+2193
 tmux_conf_theme_clock_colour="$tmux_conf_theme_colour_4"
 tmux_conf_theme_clock_style="24"
 
-
 # -- clipboard -----------------------------------------------------------------
 
 # in copy mode, copying selection also copies to the OS clipboard
@@ -324,6 +323,7 @@ tmux_conf_copy_to_os_clipboard=true
 
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
+
 # terminal
 set -g default-terminal "xterm-256color" # colors!
 
@@ -333,11 +333,11 @@ set -g default-command "${SHELL}"
 # increase history size
 #set -g history-limit 10000
 
- # start with mouse mode enabled
+# start with mouse mode enabled
 set -g mouse on
 
- # force Vi mode
- #   really you should export VISUAL or EDITOR environment variable, see manual
+# force Vi mode
+#   really you should export VISUAL or EDITOR environment variable, see manual
 set -g status-keys vi
 set -g mode-keys vi
 
@@ -362,7 +362,38 @@ bind x kill-pane
 bind X kill-window
 bind Q confirm-before -p "kill-session #S? (y/n)" kill-session
 
+# -- tpm -----------------------------------------------------------------------
+
+# while I don't use tpm myself, many people requested official support so here
+# is a seamless integration that automatically installs plugins in parallel
+
+# whenever a plugin introduces a variable to be used in 'status-left' or
+# 'status-right', you can use it in 'tmux_conf_theme_status_left' and
+# 'tmux_conf_theme_status_right' variables.
+
+# by default, launching tmux will update tpm and all plugins
+#   - true (default)
+#   - false
+tmux_conf_update_plugins_on_launch=true
+
+# by default, reloading the configuration will update tpm and all plugins
+#   - true (default)
+#   - false
+tmux_conf_update_plugins_on_reload=true
+
+# /!\ do not add set -g @plugin 'tmux-plugins/tpm'
+# /!\ do not add run '~/.tmux/plugins/tpm/tpm'
+
+# to enable a plugin, use the 'set -g @plugin' syntax:
+# visit https://github.com/tmux-plugins for available plugins
+#set -g @plugin 'tmux-plugins/tmux-copycat'
+#set -g @plugin 'tmux-plugins/tmux-cpu'
+#set -g @plugin 'tmux-plugins/tmux-resurrect'
+#set -g @plugin 'tmux-plugins/tmux-continuum'
+#set -g @continuum-restore 'on'
+
 # -- custom variables ----------------------------------------------------------
+
 # to define a custom #{foo} variable, define a POSIX shell function between the
 # '# EOF' and the '# "$@"' lines. Please note that the opening brace { character
 # must be on the same line as the function name otherwise the parse won't detect
@@ -380,7 +411,7 @@ bind Q confirm-before -p "kill-session #S? (y/n)" kill-session
 # }
 #
 # online() {
-#   ping -t 1 -c 1 1.1.1.1 >/dev/null 2>&1 && printf '✔' || printf '✘'
+#   ping -c 1 1.1.1.1 >/dev/null 2>&1 && printf '✔' || printf '✘'
 # }
 #
 # "$@"
