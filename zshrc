@@ -133,6 +133,10 @@ if [[ "$INSIDE_EMACS" = "vterm" ]]; then
   alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
 fi
 
+if cmd_exists "most"; then
+  alias man='PAGER=most man'
+fi
+
 # show system info
 if cmd_exists "neofetch" && is_gui ; then
     neofetch
