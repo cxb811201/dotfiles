@@ -183,6 +183,18 @@ function promote_ny() {
     esac
 }
 
+function open_command() {
+  local open_cmd
+
+  if [[ "$(get_os)" == "macos" ]]; then
+      open_cmd='open'
+  else
+      open_cmd='nohup xdg-open'
+  fi
+
+  ${=open_cmd} "$@" &>/dev/null
+}
+
 function sync_git_repo() {
     local repo_type="$1"
     local repo_uri="$2"
