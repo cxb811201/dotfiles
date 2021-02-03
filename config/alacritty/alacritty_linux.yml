@@ -16,16 +16,16 @@ scrolling:
 
 font:
   normal:
-    family: Iosevka Nerd Font
+    family: Sarasa Mono SC Nerd
     style: Regular
   bold:
-    family: Iosevka Nerd Font
+    family: Sarasa Mono SC Nerd
     style: Bold
   italic:
-    family: Iosevka Nerd Font
+    family: Sarasa Mono SC Nerd
     style: Italic
   bold_italic:
-    family: Iosevka Nerd Font
+    family: Sarasa Mono SC Nerd
     style: Bold Italic
   size: 10.0
   offset:
