@@ -3,6 +3,7 @@
 # These glyphs, and the mapping of file extensions to glyphs
 # has been copied from the vimscript code that is present in
 # https://github.com/ryanoasis/vim-devicons
+import re;
 import os;
 
 # all those glyphs will show as weird squares if you don't have the correct patched font
@@ -165,7 +166,7 @@ file_node_extensions = {
     'sass'     : '',
     'scala'    : '',
     'scss'     : '',
-    'sh'       : '',
+    'sh'       : '',
     'slim'     : '',
     'sln'      : '',
     'so'       : '',
