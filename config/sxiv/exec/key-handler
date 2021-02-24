@@ -1,0 +1,20 @@
+#!/bin/sh
+while read file
+do
+  case "$1" in
+  "w")
+    nitrogen --save --set-zoom-fill "$file"
+    betterlockscreen -u "$file" & ;;
+  "y")
+    echo -n "$file" | tr -d '\n' | xclip -selection clipboard &&
+      notify-send "$file copied to clipboard" & ;;
+  "Y")
+    readlink -f "$file" | tr -d '\n' | xclip -selection clipboard &&
+      notify-send "$(readlink -f "$file") copied to clipboard" & ;;
+  "d")
+    [ "$(printf "No\\nYes" | dmenu -i -p "Really delete $file?")" = "Yes" ] &&
+      rm "$file" && notify-send "$file deleted." ;;
+  "i")
+    notify-send "File information" "$(mediainfo "$file")" ;;
+  esac
+done

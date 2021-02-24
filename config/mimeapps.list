@@ -1,31 +1,10 @@
-[Added Associations]
-image/png=viewnior.desktop;
-image/jpeg=viewnior.desktop;
-text/x-csrc=leafpad.desktop;
-application/x-shellscript=leafpad.desktop;
-image/gif=viewnior.desktop;
-image/svg+xml=viewnior.desktop;
-x-scheme-handler/http=exo-web-browser.desktop;
-x-scheme-handler/https=exo-web-browser.desktop;
-inode/directory=exo-file-manager.desktop;
-x-scheme-handler/trash=exo-file-manager.desktop;
-application/wps-office.potx=wps-office-wpp.desktop;
-application/wps-office.dpss=wps-office-wpp.desktop;
-application/wps-office.dpso=wps-office-wpp.desktop;
-application/wps-office.xlsx=wps-office-et.desktop;
-application/wps-office.xltx=wps-office-et.desktop;
-application/wps-office.ets=wps-office-et.desktop;
-application/wps-office.eto=wps-office-et.desktop;
-application/wps-office.docx=wps-office-wps.desktop;
-application/wps-office.dotx=wps-office-wps.desktop;
-application/wps-office.wpss=wps-office-wps.desktop;
-application/wps-office.wpso=wps-office-wps.desktop;
-
 [Default Applications]
-image/gif=viewnior.desktop
-image/svg+xml=viewnior.desktop
+image/png=img.desktop;
+image/jpeg=img.desktop;
+image/gif=img.desktop;
+image/svg+xml=img.desktop
 text/html=google-chrome.desktop
-x-scheme-handler/tg=telegramdesktop.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-L8WOZ0.desktop
 x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
 x-scheme-handler/about=google-chrome.desktop
@@ -54,3 +33,6 @@ application/wps-office.wps=wps-office-wps.desktop
 application/wps-office.wpss=wps-office-wps.desktop
 application/wps-office.wpso=wps-office-wps.desktop
 application/wps-office.wpt=wps-office-wps.desktop
+
+[Added Associations]
+x-scheme-handler/tg=telegramdesktop.desktop;userapp-Telegram Desktop-L8WOZ0.desktop;
