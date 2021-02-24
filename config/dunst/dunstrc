@@ -1,7 +1,7 @@
 [global]
 monitor = 0
 follow = mouse
-geometry = "280x50-6+33"
+geometry = "280x50-5+22"
 indicate_hidden = yes
 shrink = no
 transparency = 20
@@ -31,7 +31,7 @@ browser = x-www-browser -new-tab
 always_run_script = true
 title = Dunst
 class = Dunst
-icon_path = /usr/share/icons/Arch/16x16/mimetypes/:/usr/share/icons/Arch/32x32/status/:/usr/share/icons/Arch/16x16/devices/::/usr/share/icons/Arch/32x32/emblems/
+#icon_path = /usr/share/icons/Papirus/16x16/mimetypes/:/usr/share/icons/Papirus/32x32/status/:/usr/share/icons/Papirus/16x16/devices/::/usr/share/icons/Papirus/32x32/emblems/
 
 [shortcuts]
 close = ctrl+shift+space
@@ -41,18 +41,18 @@ context = ctrl+shift+period
 
 [urgency_low]
 timeout = 3
-background = "#212B30"
-foreground = "#C4C7C5"
-frame_color = "#4DD0E1"
+background = "#2E3440"
+foreground = "#D8DEE9"
+frame_color = "#81A1C1"
 
 [urgency_normal]
 timeout = 5
-background = "#212B30"
-foreground = "#C4C7C5"
-frame_color = "#4DD0E1"
+background = "#2E3440"
+foreground = "#D8DEE9"
+frame_color = "#81A1C1"
 
 [urgency_critical]
 timeout = 0
-background = "#212B30"
-foreground = "#EC407A"
-frame_color = "#EC407A"
+background = "#2E3440"
+foreground = "#BF616A"
+frame_color = "#BF616A"
