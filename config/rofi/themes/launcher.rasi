@@ -1,15 +1,15 @@
 configuration {
-    font:                           "Iosevka 10";
+    font:                           "Noto Sans 10";
     show-icons:                     true;
-	icon-theme: 					"Hybrid";
-    display-drun: 					":";
+	  icon-theme: 					          "Papirus";
+    display-drun: 					        ":";
     drun-display-format:            "{icon} {name}";
     threads:                        0;
     scroll-method:                  0;
     disable-history:                false;
     fullscreen:                     false;
-	hide-scrollbar: 				true;
-	sidebar-mode: 					false;
+    hide-scrollbar: 				        true;
+    sidebar-mode: 					        false;
 }
 
 @import "colors.rasi"
@@ -18,8 +18,8 @@ window {
     transparency:                   "real";
     background-color:               @background;
     text-color:                     @foreground;
-	border:							1px;
-    border-radius:                  0px;
+    border:							            1px;
+    border-radius:        0px;
     border-color:					@selected;
     width:                          25%;
     location:                       center;
@@ -37,7 +37,7 @@ prompt {
 
 textbox-prompt-colon {
 	expand: 						false;
-	str: 							"";
+	str: 							"";
     background-color:               @background;
     text-color:                     @urgent;
     padding:                        5px 0px 0px 6px;
