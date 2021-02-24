@@ -8,8 +8,8 @@ if [[ -d "$HOME/.local/bin" ]]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [[ -d "$HOME/.emacs.d/bin" ]]; then
-    export PATH="$HOME/.emacs.d/bin:$PATH"
+if [[ -d "$HOME/.emacs-doom.d/bin" ]]; then
+    export PATH="$HOME/.emacs-doom.d/bin:$PATH"
 fi
 
 # java
