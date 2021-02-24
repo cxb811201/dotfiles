@@ -27,7 +27,6 @@ packages=(
     bash-language-server
     pyright
     dockerfile-language-server-nodejs
-    locate-java-home
 )
 
 function check() {
