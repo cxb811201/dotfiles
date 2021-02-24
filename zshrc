@@ -137,6 +137,11 @@ if cmd_exists "most"; then
   alias man='PAGER=most man'
 fi
 
+if cmd_exists "nvim"; then
+  alias vim="nvim"
+  alias vi="nvim"
+fi
+
 # show system info
 if cmd_exists "neofetch" && is_gui ; then
     neofetch
