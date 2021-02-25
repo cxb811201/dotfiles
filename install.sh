@@ -51,8 +51,6 @@ ln -snf "$DOTFILES"/gitignore_global "$HOME"/.gitignore_global
 ln -snf "$DOTFILES"/gitconfig_global "$HOME"/.gitconfig_global
 if [ "$(get_os)" != "macos" ]; then
     ln -snf "$DOTFILES"/pam_environment "$HOME"/.pam_environment
-    ln -snf "$DOTFILES"/Xresources "$HOME"/.Xresources
-    ln -snf "$DOTFILES"/Xresources.d "$HOME"/.Xresources.d
     ln -snf "$DOTFILES"/config/coursier "$HOME"/.config/coursier
     ln -snf "$DOTFILES"/gitconfig_linux "$HOME"/.gitconfig
     cp -rf "$DOTFILES"/gtkrc-2.0 "$HOME"/.gtkrc-2.0
@@ -64,12 +62,9 @@ if [ "$(get_os)" != "macos" ]; then
     mkdir -p "$HOME"/.config/alacritty
     ln -snf "$DOTFILES"/config/alacritty/alacritty_linux.yml "$HOME"/.config/alacritty/alacritty.yml
     ln -snf "$DOTFILES"/config/bashtop "$HOME"/.config/bashtop
-    ln -snf "$DOTFILES"/config/bspwm "$HOME"/.config/bspwm
     ln -snf "$DOTFILES"/config/dunst "$HOME"/.config/dunst
     ln -snf "$DOTFILES"/config/networkmanager-dmenu "$HOME"/.config/networkmanager-dmenu
-    ln -snf "$DOTFILES"/config/polybar "$HOME"/.config/polybar
     ln -snf "$DOTFILES"/config/rofi "$HOME"/.config/rofi
-    ln -snf "$DOTFILES"/config/sxhkd "$HOME"/.config/sxhkd
     ln -snf "$DOTFILES"/config/compton.conf "$HOME"/.config/compton.conf
     mkdir -p "$HOME"/.mpd
     cp -rf "$DOTFILES"/mpd/* "$HOME"/.mpd

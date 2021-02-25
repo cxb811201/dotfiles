@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-# launch alacritty with other config
-if [ "$1" == "-f" ]; then
-	alacritty --class alacritty-float,Alacritty-float
-else
-	alacritty
-fi
