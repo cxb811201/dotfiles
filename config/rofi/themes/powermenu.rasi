@@ -21,7 +21,7 @@ window {
 	border:							1px;
     border-radius:                  0px;
     border-color:					@selected;
-    width:                          281px;
+    width:                          226px;
     location:                       center;
     anchor:                         center;
     x-offset:                       0;
@@ -79,7 +79,7 @@ case-indicator {
 listview {
     background-color:               @background;
     columns:                        1;
-    lines:							5;
+    lines:							4;
     spacing:                        5px;
     cycle:                          true;
     dynamic:                        true;

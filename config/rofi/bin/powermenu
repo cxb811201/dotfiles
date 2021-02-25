@@ -10,11 +10,10 @@ uptime=$(uptime -p | sed -e 's/up //g')
 shutdown=""
 reboot=""
 lock=""
-suspend=""
 logout=""
 
 # Variable passed to rofi
-options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
+options="$shutdown\n$reboot\n$lock\n$logout"
 _msg="Options  -  yes / y / no / n"
 
 chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 2)"
@@ -42,22 +41,10 @@ case $chosen in
     $lock)
         betterlockscreen --lock
         ;;
-    $suspend)
-		ans=$($DIR/bin/confirm)
-		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-        mpc -q pause
-        amixer set Master mute
-        betterlockscreen --suspend
-		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-        exit
-        else
-        rofi -theme $DIR/themes/askpass.rasi -e "$_msg"
-        fi
-        ;;
     $logout)
 		ans=$($DIR/bin/confirm)
 		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-        bspc quit
+        dwmc quit
 		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
         exit
         else
