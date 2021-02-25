@@ -4,7 +4,7 @@
     transparency:                   "real";
     background-color:               @background;
     text-color:                     @foreground;
-    font:            				"Iosevka 10";
+    font:            				"Noto Sans 10";
 }
 
 #window {

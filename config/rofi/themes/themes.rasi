@@ -1,5 +1,5 @@
 configuration {
-    font:                           "Iosevka 10";
+    font:                           "Noto Sans 10";
     show-icons:                     false;
 	icon-theme: 					"Papirus";
     display-drun: 					":";
