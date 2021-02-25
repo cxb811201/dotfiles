@@ -55,6 +55,8 @@ if [ "$(get_os)" != "macos" ]; then
     ln -snf "$DOTFILES"/gitconfig_linux "$HOME"/.gitconfig
     cp -rf "$DOTFILES"/gtkrc-2.0 "$HOME"/.gtkrc-2.0
     cp -rf "$DOTFILES"/config/gtk-3.0/* "$HOME"/.config/gtk-3.0
+    ln -snf "$DOTFILES"/config/Kvantum "$HOME"/.config/Kvantum
+    ln -snf "$DOTFILES"/config/Trolltech.conf "$HOME"/.config/Trolltech.conf
     cp -rf "$DOTFILES"/config/mimeapps.list "$HOME"/.config/mimeapps.list
     ln -snf "$DOTFILES"/config/libfm "$HOME"/.config/libfm
     ln -nsf "$DOTFILES"/config/pcmanfm "$HOME"/.config/pcmanfm
@@ -65,7 +67,9 @@ if [ "$(get_os)" != "macos" ]; then
     ln -snf "$DOTFILES"/config/dunst "$HOME"/.config/dunst
     ln -snf "$DOTFILES"/config/networkmanager-dmenu "$HOME"/.config/networkmanager-dmenu
     ln -snf "$DOTFILES"/config/rofi "$HOME"/.config/rofi
-    ln -snf "$DOTFILES"/config/compton.conf "$HOME"/.config/compton.conf
+    ln -snf "$DOTFILES"/config/dwm "$HOME"/.config/dwm
+    ln -snf "$DOTFILES"/config/sxiv "$HOME"/.config/sxiv
+    ln -snf "$DOTFILES"/config/picom.conf "$HOME"/.config/picom.conf
     mkdir -p "$HOME"/.mpd
     cp -rf "$DOTFILES"/mpd/* "$HOME"/.mpd
     mkdir -p "$HOME"/.mpd/playlists
