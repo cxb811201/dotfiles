@@ -6,11 +6,7 @@ export TERM="xterm-256color"
 export DOTFILES=$HOME/.dotfiles
 
 # editor
-if command -v "emacsclient" &> /dev/null; then
-    export EDITOR='emacsclient -a "emacs"'
-else
-    export EDITOR="vim"
-fi
+export EDITOR="vim"
 
 # java
 export JAVA_OPTS="-XX:+UseNUMA -XX:+UseG1GC"
