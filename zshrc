@@ -151,3 +151,7 @@ fi
 if [[ -z $INSIDE_EMACS ]] && is_gui ; then
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 fi
+
+if [[ "$(get_os)" != "macos" ]] && cmd_exists "startx" ; then
+  [[ "$(tty)" == "/dev/tty1" ]] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx
+fi
