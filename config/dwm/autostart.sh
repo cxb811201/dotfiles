@@ -16,6 +16,9 @@ fi
 
 setsid -f nitrogen --restore
 
+# Remove mouse when idle
+setsid -f unclutter
+
 if ! pgrep -u $UID -x fcitx5 > /dev/null; then
     setsid -f fcitx5
 fi
