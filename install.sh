@@ -68,6 +68,7 @@ if [ "$(get_os)" != "macos" ]; then
     ln -snf "$DOTFILES"/config/rofi "$HOME"/.config/rofi
     ln -snf "$DOTFILES"/config/dwm "$HOME"/.config/dwm
     ln -snf "$DOTFILES"/config/sxiv "$HOME"/.config/sxiv
+    ln -snf "$DOTFILES"/config/zathura "$HOME"/.config/zathura
     ln -snf "$DOTFILES"/config/picom.conf "$HOME"/.config/picom.conf
     mkdir -p "$HOME"/.mpd
     cp -rf "$DOTFILES"/mpd/* "$HOME"/.mpd
