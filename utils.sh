@@ -107,7 +107,7 @@ function zsh_exists() {
 }
 
 function is_gui() {
-    [[ "$(get_os)" == "macos" ]] || xset q &>/dev/null
+    [ "$(get_os)" = "macos" ] || xset q &>/dev/null
 }
 
 function sys_os() {
@@ -186,7 +186,7 @@ function promote_ny() {
 function open_command() {
   local open_cmd
 
-  if [[ "$(get_os)" == "macos" ]]; then
+  if [ "$(get_os)" = "macos" ]; then
       open_cmd='open'
   else
       open_cmd='nohup xdg-open'
@@ -219,7 +219,7 @@ function sync_git_repo() {
     fi
 }
 
-if [[ "$(get_os)" == "macos" ]]; then
+if [ "$(get_os)" = "macos" ]; then
     function set_homebrew_mirror() {
         cd "$(brew --repo)" || return
         git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
