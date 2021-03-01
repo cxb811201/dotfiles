@@ -6,10 +6,9 @@
 	email = 517926804@qq.com
 [credential]
 	# helper = cache --timeout=3600
-	helper = store --file ~/.git_credentials
-	# install libsecret-1-dev
-	# cd /usr/share/doc/git/contrib/credential/libsecret; sudo make
-	# helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+	# helper = store --file ~/.git_credentials
+	# install libsecret
+	helper = /usr/lib/git-core/git-credential-libsecret
 [github]
 	user = cxb811201
 [pull]
