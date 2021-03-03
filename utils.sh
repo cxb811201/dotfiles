@@ -184,15 +184,11 @@ function promote_ny() {
 }
 
 function open_command() {
-  local open_cmd
-
   if [ "$(get_os)" = "macos" ]; then
-      open_cmd='open'
+      open "$@" &>/dev/null
   else
-      open_cmd='nohup xdg-open'
+      setsid -f xdg-open "$@"
   fi
-
-  ${=open_cmd} "$@" &>/dev/null
 }
 
 function sync_git_repo() {
