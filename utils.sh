@@ -184,11 +184,15 @@ function promote_ny() {
 }
 
 function open_command() {
-  if [ "$(get_os)" = "macos" ]; then
-      open "$@" &>/dev/null
-  else
-      setsid -f xdg-open "$@"
-  fi
+    local open_cmd;
+
+    if [ "$(get_os)" = "macos" ]; then
+        open_cmd='open'
+    else
+        open_cmd='setsid -f xdg-open'
+    fi
+
+    ${=open_cmd} "$@" &>/dev/null
 }
 
 function sync_git_repo() {
