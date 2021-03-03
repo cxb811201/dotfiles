@@ -12,7 +12,7 @@ do
     readlink -f "$file" | tr -d '\n' | xclip -selection clipboard &&
       notify-send "$(readlink -f "$file") copied to clipboard" & ;;
   "d")
-    [ "$(printf "No\\nYes" | dmenu -i -p "Really delete $file?")" = "Yes" ] &&
+    [ "$(printf "No\\nYes" | dmenu -c -l 2 -i -p "Really delete $file?")" = "Yes" ] &&
       rm "$file" && notify-send "$file deleted." ;;
   "i")
     notify-send "File information" "$(mediainfo "$file")" ;;
