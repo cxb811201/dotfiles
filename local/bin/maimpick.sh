@@ -1,11 +1,16 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-# This is bound to Shift+PrintScreen by default, requires maim. It lets you
-# choose the kind of screenshot to take, including copying the image or even
-# highlighting an area to copy. scrotcucks on suicidewatch right now.
+declare -a options=("selected area
+current window
+full screen
+selected area (copy)
+current window (copy)
+full screen (copy)")
 
-case "$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)" | dmenu -c -l 6 -i -p "Screenshot which area?")" in
-    "a selected area")
+choice=$(echo -e "${options[@]}" | dmenu -c -l 6 -i -p "Screenshot which area?")
+
+case $choice in
+    "selected area")
         pfile=$(xdg-user-dir PICTURES)/pic-selected-"$(date '+%y%m%d-%H%M-%S').png"
         maim -s "$pfile" && sxiv -N Screenshot "$pfile"
         unset pfile
@@ -20,7 +25,7 @@ case "$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area
         maim "$pfile" && sxiv -N Screenshot "$pfile"
         unset pfile
         ;;
-    "a selected area (copy)")
+    "selected area (copy)")
         maim -s | xclip -selection clipboard -t image/png
         ;;
     "current window (copy)")
