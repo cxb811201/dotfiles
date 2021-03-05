@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 case $BUTTON in
-    1) setsid -f alacritty -e pulsemixer ;;
+    1) setsid -f alacritty -e volume-control.sh ;;
     2) pamixer -t ;;
     4) pamixer --allow-boost -i 1 ;;
     5) pamixer --allow-boost -d 1 ;;
