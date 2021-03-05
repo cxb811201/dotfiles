@@ -45,11 +45,6 @@ selection:
 
 live_config_reload: true
 
-shell:
-  program: /bin/zsh
-  args:
-    - --login
-
 cursor:
   style:
     shape: Block
