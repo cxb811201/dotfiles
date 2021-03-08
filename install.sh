@@ -65,7 +65,6 @@ if [ "$(get_os)" != "macos" ]; then
     ln -snf "$DOTFILES"/config/alacritty/alacritty_linux.yml "$HOME"/.config/alacritty/alacritty.yml
     ln -snf "$DOTFILES"/config/bashtop "$HOME"/.config/bashtop
     ln -snf "$DOTFILES"/config/dunst "$HOME"/.config/dunst
-    ln -snf "$DOTFILES"/config/rofi "$HOME"/.config/rofi
     ln -snf "$DOTFILES"/config/dwm "$HOME"/.config/dwm
     ln -snf "$DOTFILES"/config/sxiv "$HOME"/.config/sxiv
     ln -snf "$DOTFILES"/config/zathura "$HOME"/.config/zathura
