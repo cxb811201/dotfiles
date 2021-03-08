@@ -16,12 +16,12 @@ case $choice in
         unset pfile
         ;;
     "current window")
-        pfile=$(xdg-user-dir PICTURES)/pic-selected-"$(date '+%y%m%d-%H%M-%S').png"
+        pfile=$(xdg-user-dir PICTURES)/pic-window-"$(date '+%y%m%d-%H%M-%S').png"
         maim -i "$(xdotool getactivewindow)" "$pfile" && sxiv -N Screenshot "$pfile"
         unset pfile
         ;;
     "full screen")
-        pfile=$(xdg-user-dir PICTURES)/pic-selected-"$(date '+%y%m%d-%H%M-%S').png"
+        pfile=$(xdg-user-dir PICTURES)/pic-full-"$(date '+%y%m%d-%H%M-%S').png"
         maim "$pfile" && sxiv -N Screenshot "$pfile"
         unset pfile
         ;;
