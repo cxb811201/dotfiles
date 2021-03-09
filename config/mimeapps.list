@@ -12,6 +12,7 @@ image/x-portable-bitmap=img.desktop
 image/x-portable-graymap=img.desktop
 image/x-tga=img.desktop
 image/x-xpixmap=img.desktop
+inode/directory=file.desktop
 text/html=google-chrome.desktop
 x-scheme-handler/tg=userapp-Telegram Desktop-L8WOZ0.desktop
 x-scheme-handler/http=google-chrome.desktop
