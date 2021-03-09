@@ -58,6 +58,8 @@ if [ "$(get_os)" != "macos" ]; then
     ln -snf "$DOTFILES"/config/Kvantum "$HOME"/.config/Kvantum
     ln -snf "$DOTFILES"/config/Trolltech.conf "$HOME"/.config/Trolltech.conf
     cp -rf "$DOTFILES"/config/mimeapps.list "$HOME"/.config/mimeapps.list
+    mkdir -p "$HOME"/.local/share
+    cp -rf "$DOTFILES"/local/share/applications "$HOME"/.local/share
     ln -snf "$DOTFILES"/config/libfm "$HOME"/.config/libfm
     ln -nsf "$DOTFILES"/config/pcmanfm "$HOME"/.config/pcmanfm
     ln -snf "$DOTFILES"/config/fontconfig "$HOME"/.config/fontconfig
