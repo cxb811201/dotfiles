@@ -32,7 +32,6 @@ fi
 print_info "installing dotfiles..."
 # common
 ln -snf "$DOTFILES"/authinfo.gpg "$HOME"/.authinfo.gpg
-ln -snf "$DOTFILES"/vimrc "$HOME"/.vimrc
 ln -snf "$DOTFILES"/markdownlint.json "$HOME"/.markdownlint.json
 ln -snf "$DOTFILES"/npmrc "$HOME"/.npmrc
 ln -snf "$DOTFILES"/vuerc "$HOME"/.vuerc
@@ -113,6 +112,16 @@ if [ "$(get_os)" != "macos" ]; then
     fi
     print_success "fcitx5 configuration successfully"
 fi
+
+# vim
+print_info "configure vim..."
+ln -snf "$DOTFILES"/vimrc "$HOME"/.vimrc
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if cmd_exists "vim"; then
+    vim +PlugInstall +qall
+fi
+print_success "vim configuration successfully"
 
 # tmux
 print_info "installing oh_my_tmux..."
