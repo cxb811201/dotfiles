@@ -43,7 +43,7 @@ set history=1024
 set undofile
 set undodir=~/.vim/.undo
 if !isdirectory($HOME . "/.vim/.undo")
-    call mkdir($HOME . "/.vim/.undo", "p")
+  call mkdir($HOME . "/.vim/.undo", "p")
 endif
 
 set timeoutlen=700        " Time to wait for a command
@@ -70,6 +70,11 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+if executable('fzf')
+  Plug 'junegunn/fzf'
+else
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+endif
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'         " 启动页
 Plug 'roman/golden-ratio'         " 自动控制窗口大小
@@ -85,7 +90,7 @@ Plug 'arcticicestudio/nord-vim'   " nord 配色
 
 call plug#end()
 
-colorscheme nord
+silent! colorscheme nord
 
 " -------------------------------------------------
 " KEY MAPPING
