@@ -2,4 +2,4 @@
 Type=Application
 Name=File Manager
 NoDisplay=true
-Exec=/usr/bin/alacritty -e ranger %u
+Exec=/usr/bin/alacritty -t FileManager -e ranger %u
