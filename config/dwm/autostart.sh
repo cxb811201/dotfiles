@@ -2,6 +2,8 @@
 
 setsid -f xsetroot -cursor_name left_ptr
 
+setsid -f xset s off -dpms
+
 if ! pgrep -u $UID -x dunst > /dev/null; then
     setsid -f dunst
 fi
