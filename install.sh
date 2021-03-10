@@ -50,6 +50,7 @@ ln -snf "$DOTFILES"/gitignore_global "$HOME"/.gitignore_global
 ln -snf "$DOTFILES"/gitconfig_global "$HOME"/.gitconfig_global
 if [ "$(get_os)" != "macos" ]; then
     ln -snf "$DOTFILES"/pam_environment "$HOME"/.pam_environment
+    ln -snf "$DOTFILES"/Xresources "$HOME"/.Xresources
     ln -snf "$DOTFILES"/config/coursier "$HOME"/.config/coursier
     ln -snf "$DOTFILES"/gitconfig_linux "$HOME"/.gitconfig
     cp -rf "$DOTFILES"/gtkrc-2.0 "$HOME"/.gtkrc-2.0
