@@ -12,8 +12,8 @@ if [[ $OSTYPE == linux* && -d "$DOTFILES/local/bin" ]]; then
   export PATH="$DOTFILES/local/bin:$PATH"
 fi
 
-if [[ -d "$HOME/.emacs-doom.d/bin" ]]; then
-  export PATH="$HOME/.emacs-doom.d/bin:$PATH"
+if [[ -d "$HOME/.doom-emacs.d/bin" ]]; then
+  export PATH="$HOME/.doom-emacs.d/bin:$PATH"
 fi
 
 # java

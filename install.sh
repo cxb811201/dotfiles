@@ -6,7 +6,7 @@ TMUX=$HOME/.tmux
 ZINIT=$HOME/.zinit
 ZINITBIN=$HOME/.zinit/bin
 EMACSD=$HOME/.emacs.d
-EMACSDOOMD=$HOME/.emacs-doom.d
+EMACSDOOMD=$HOME/.doom-emacs.d
 DOOMD=$HOME/.doom.d
 
 BASE_DIR="${BASH_SOURCE%/*}"
