@@ -104,25 +104,25 @@ print_success "fonts install successfully"
 
 # fcitx5
 if [ "$(get_os)" != "macos" ]; then
-    print_info "configure fcitx5..."
+    print_info "installing fcitx5..."
     cp -rf "$DOTFILES"/config/fcitx5 "$HOME"/.config
     mkdir -p "$HOME"/.local/share
     cp -rf "$DOTFILES"/local/share/fcitx5 "$HOME"/.local/share
     if [ ! -d "$HOME/.local/share/fcitx5/rime" ]; then
         sync_git_repo github cxb811201/rime-wubi86-jidian "$HOME"/.local/share/fcitx5/rime
     fi
-    print_success "fcitx5 configuration successfully"
+    print_success "fcitx5 install successfully"
 fi
 
 # vim
-print_info "configure vim..."
+print_info "installing vim..."
 ln -snf "$DOTFILES"/vimrc "$HOME"/.vimrc
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 if cmd_exists "vim"; then
     vim +PlugInstall +qall
 fi
-print_success "vim configuration successfully"
+print_success "vim install successfully"
 
 # tmux
 print_info "installing oh_my_tmux..."
