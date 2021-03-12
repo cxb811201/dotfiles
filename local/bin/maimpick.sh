@@ -1,37 +1,40 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-declare -a options=("selected area
-current window
-full screen
-selected area (copy)
-current window (copy)
-full screen (copy)")
+declare -a options=(
+    "Selected area"
+    "Current window"
+    "Full screen"
+    "Selected area (copy)"
+    "Current window (copy)"
+    "Full screen (copy)"
+)
 
-choice=$(echo -e "${options[@]}" | dmenu -c -l 6 -i -p "Screenshot which area?")
+choice=$(printf '%s\n' "${options[@]}" | dmenu -c -l 6 -i -p "Take screenshot of:")
 
 case $choice in
-    "selected area")
+    "Selected area")
         pfile=$(xdg-user-dir PICTURES)/pic-selected-"$(date '+%y%m%d-%H%M-%S').png"
         maim -s "$pfile" && sxiv -N Screenshot "$pfile"
         unset pfile
         ;;
-    "current window")
+    "Current window")
         pfile=$(xdg-user-dir PICTURES)/pic-window-"$(date '+%y%m%d-%H%M-%S').png"
         maim -i "$(xdotool getactivewindow)" "$pfile" && sxiv -N Screenshot "$pfile"
         unset pfile
         ;;
-    "full screen")
+    "Full screen")
         pfile=$(xdg-user-dir PICTURES)/pic-full-"$(date '+%y%m%d-%H%M-%S').png"
         maim "$pfile" && sxiv -N Screenshot "$pfile"
         unset pfile
         ;;
-    "selected area (copy)")
+    "Selected area (copy)")
         maim -s | xclip -selection clipboard -t image/png
         ;;
-    "current window (copy)")
+    "Current window (copy)")
         maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png
         ;;
-    "full screen (copy)")
+    "Full screen (copy)")
         maim | xclip -selection clipboard -t image/png
         ;;
 esac
