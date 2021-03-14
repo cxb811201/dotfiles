@@ -117,8 +117,7 @@ fi
 # vim
 print_info "installing vim..."
 ln -snf "$DOTFILES"/vimrc "$HOME"/.vimrc
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+cp -rf "$DOTFILES"/vim "$HOME"/.vim
 if cmd_exists "vim"; then
     vim +PlugInstall +qall
 fi
