@@ -168,7 +168,9 @@ if [ ! -d "$EMACSD" ] || [ ! -d "$EMACSDOOMD" ] || [ ! -d "$DOOMD" ]; then
     sync_git_repo github plexus/chemacs2 "$EMACSD" develop
     sync_git_repo github hlissner/doom-emacs "$EMACSDOOMD" develop
     sync_git_repo github cxb811201/.doom.d "$DOOMD"
-    "$EMACSDOOMD"/bin/doom install --no-config --no-env
+    if cmd_exists "emacs"; then
+        "$EMACSDOOMD"/bin/doom install --no-config --no-env
+    fi
     print_success "doom-emacs install successfully"
 fi
 
