@@ -157,7 +157,7 @@ if [ ! -d "$EMACSD" ] || [ ! -d "$EMACSDOOMD" ] || [ ! -d "$DOOMD" ]; then
         mv "$EMACSD" "$EMACSD".bak
     fi
     if [ -d "$EMACSDOOMD" ]; then
-	mv "$EMACSDOOMD" "$EMACSDOOMD".bak
+        mv "$EMACSDOOMD" "$EMACSDOOMD".bak
     fi
     if [ -d "$DOOMD" ]; then
         mv "$DOOMD" "$DOOMD".bak
