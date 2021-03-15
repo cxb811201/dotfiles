@@ -117,8 +117,7 @@ fi
 # vim
 print_info "installing vim..."
 ln -snf "$DOTFILES"/vimrc "$HOME"/.vimrc
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+cp -rf "$DOTFILES"/vim "$HOME"/.vim
 if cmd_exists "vim"; then
     vim +PlugInstall +qall
 fi
@@ -158,7 +157,7 @@ if [ ! -d "$EMACSD" ] || [ ! -d "$EMACSDOOMD" ] || [ ! -d "$DOOMD" ]; then
         mv "$EMACSD" "$EMACSD".bak
     fi
     if [ -d "$EMACSDOOMD" ]; then
-	mv "$EMACSDOOMD" "$EMACSDOOMD".bak
+        mv "$EMACSDOOMD" "$EMACSDOOMD".bak
     fi
     if [ -d "$DOOMD" ]; then
         mv "$DOOMD" "$DOOMD".bak
@@ -169,7 +168,9 @@ if [ ! -d "$EMACSD" ] || [ ! -d "$EMACSDOOMD" ] || [ ! -d "$DOOMD" ]; then
     sync_git_repo github plexus/chemacs2 "$EMACSD" develop
     sync_git_repo github hlissner/doom-emacs "$EMACSDOOMD" develop
     sync_git_repo github cxb811201/.doom.d "$DOOMD"
-    "$EMACSDOOMD"/bin/doom install --no-config --no-env
+    if cmd_exists "emacs"; then
+        "$EMACSDOOMD"/bin/doom install --no-config --no-env
+    fi
     print_success "doom-emacs install successfully"
 fi
 
