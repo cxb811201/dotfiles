@@ -129,6 +129,7 @@ print_info "installing oh_my_tmux..."
 ln -snf "$DOTFILES"/tmux.conf.local "$HOME"/.tmux.conf.local
 if [ ! -d "$TMUX" ]; then
     sync_git_repo github gpakosz/.tmux "$TMUX"
+    ln -snf "$HOME"/.tmux/.tmux.conf "$HOME"/.tmux.conf
 fi
 print_success "oh_my_tmux install successfully"
 
