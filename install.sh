@@ -165,7 +165,7 @@ if [ ! -d "$EMACSD" ] || [ ! -d "$EMACSDOOMD" ] || [ ! -d "$DOOMD" ]; then
 
     ln -snf "$DOTFILES"/emacs-profiles.el "$HOME"/.emacs-profiles.el
 
-    sync_git_repo github plexus/chemacs2 "$EMACSD" develop
+    sync_git_repo github plexus/chemacs2 "$EMACSD"
     sync_git_repo github hlissner/doom-emacs "$EMACSDOOMD" develop
     sync_git_repo github cxb811201/.doom.d "$DOOMD"
     if cmd_exists "emacs"; then
