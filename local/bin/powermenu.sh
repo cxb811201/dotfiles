@@ -21,7 +21,7 @@ choice=$(printf '%s\n' "${options[@]}" | dmenu -c -l 4 -i -p 'Power menu:')
 case $choice in
     'Logout')
         if [[ $(yesno "Logout?") == "Yes" ]]; then
-            dwmc quit 0
+            dwmc quit
         fi
         ;;
     'Lock screen')
