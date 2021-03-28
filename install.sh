@@ -55,6 +55,7 @@ if [ "$(get_os)" != "macos" ]; then
     ln -snf "$DOTFILES"/config/coursier "$HOME"/.config/coursier
     ln -snf "$DOTFILES"/gitconfig_linux "$HOME"/.gitconfig
     cp -rf "$DOTFILES"/gtkrc-2.0 "$HOME"/.gtkrc-2.0
+    mkdir -p "$HOME"/.config/gtk-3.0
     cp -rf "$DOTFILES"/config/gtk-3.0/* "$HOME"/.config/gtk-3.0
     ln -snf "$DOTFILES"/config/Kvantum "$HOME"/.config/Kvantum
     ln -snf "$DOTFILES"/config/Trolltech.conf "$HOME"/.config/Trolltech.conf
