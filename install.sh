@@ -76,7 +76,6 @@ if [ "$(get_os)" != "macos" ]; then
     mkdir -p "$HOME"/.mpd/playlists
     touch "$HOME"/.mpd/{mpd.db,mpd.log,mpdstate}
     ln -snf "$DOTFILES"/ncmpcpp "$HOME"/.ncmpcpp
-    ln -snf "$DOTFILES"/fehbg "$HOME"/.fehbg
 else
     if [ ! -d "$HOME/Library/Preferences" ]; then
         mkdir -p "$HOME"/Library/Preferences
