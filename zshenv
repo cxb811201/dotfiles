@@ -9,6 +9,7 @@ export DOTFILES=$HOME/.dotfiles
 export EDITOR="vim"
 
 # java
+export _JAVA_AWT_WM_NONREPARENTING=1
 export JAVA_OPTS="-XX:+UseNUMA -XX:+UseG1GC"
 
 # sbt
