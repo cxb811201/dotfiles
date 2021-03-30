@@ -9,7 +9,9 @@ export DOTFILES=$HOME/.dotfiles
 export EDITOR="vim"
 
 # java
-export _JAVA_AWT_WM_NONREPARENTING=1
+if [[ ! $OSTYPE == darwin* ]]; then
+  export _JAVA_AWT_WM_NONREPARENTING=1
+fi
 export JAVA_OPTS="-XX:+UseNUMA -XX:+UseG1GC"
 
 # sbt
@@ -17,8 +19,8 @@ export SBT_OPTS="-Xms2048m -Xmx2048m -XX:ReservedCodeCacheSize=256m -XX:MaxMetas
 
 # brew
 if [[ $OSTYPE == darwin* ]]; then
-    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
-    export HOMEBREW_NO_AUTO_UPDATE=1
+  export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
+  export HOMEBREW_NO_AUTO_UPDATE=1
 fi
 
 # rust
@@ -36,7 +38,7 @@ export GOPRIVATE="git.iobox.me"
 export GOPATH="$HOME/.go"
 export GOBIN="$GOPATH/bin"
 if [[ $OSTYPE == darwin* ]]; then
-    if [[ -d "/usr/local/opt/go/libexec" ]]; then
-        export GOROOT="/usr/local/opt/go/libexec"
-    fi
+  if [[ -d "/usr/local/opt/go/libexec" ]]; then
+    export GOROOT="/usr/local/opt/go/libexec"
+  fi
 fi
