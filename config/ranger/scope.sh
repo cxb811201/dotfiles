@@ -98,7 +98,7 @@ case "$mimetype" in
     ## uncommented other methods to preview those formats
     *wordprocessingml.document|*/epub+zip|*/x-fictionbook+xml)
         ## Preview as markdown conversion
-        try pandoc -s -t markdown -- "${FILE_PATH}" && { dump | trim; exit 5; } || exit 1;;
+        try pandoc -s -t markdown -- "$path" && { dump | trim; exit 5; } || exit 1;;
 
     ## SVG
     image/svg+xml|image/svg)
