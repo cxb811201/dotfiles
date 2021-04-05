@@ -65,7 +65,7 @@ if cmd_exists "exa"; then
   alias ll='exa --group-directories-first -lH'
 else
   zinit ice wait lucid as"program" from"gh-r" \
-    mv"bin/exa -> exa" lucid \
+    mv"bin/exa -> exa" pick"exa" lucid \
     atload"
       alias ls='exa --group-directories-first'
       alias l='exa --group-directories-first -laH'
