@@ -69,7 +69,7 @@ case "$extension" in
         ## Preview as markdown conversion
         try pandoc -s -t markdown -- "$path" && { dump | trim; exit 5; }
         exit 1;;
-    xlsx)
+    xlsx|xlsm)
         ## Preview as csv conversion
         ## Uses: https://github.com/dilshod/xlsx2csv
         try xlsx2csv -- "$path" && { dump | trim; exit 5; } || exit 1;;
