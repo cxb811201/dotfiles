@@ -59,13 +59,19 @@ else
   zinit light sindresorhus/pure
 fi
 
-zinit ice wait lucid as"program" from"gh-r" \
-  mv"exa* -> exa" pick"exa/exa" lucid \
-  atload"
-    alias ls='exa --group-directories-first'
-    alias l='exa --group-directories-first -laH'
-    alias ll='exa --group-directories-first -lH'"
-zinit light ogham/exa
+if cmd_exists "exa"; then
+  alias ls='exa --group-directories-first'
+  alias l='exa --group-directories-first -laH'
+  alias ll='exa --group-directories-first -lH'
+else
+  zinit ice wait lucid as"program" from"gh-r" \
+    mv"bin/exa -> exa" lucid \
+    atload"
+      alias ls='exa --group-directories-first'
+      alias l='exa --group-directories-first -laH'
+      alias ll='exa --group-directories-first -lH'"
+  zinit light ogham/exa
+fi
 
 # complete for ssh_host
 function _all_ssh_host() {
