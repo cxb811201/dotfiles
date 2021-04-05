@@ -73,6 +73,9 @@ else
   zinit light ogham/exa
 fi
 
+zinit ice as"program" cp"httpstat.sh -> httpstat" pick"httpstat"
+zinit light b4b4r07/httpstat
+
 # complete for ssh_host
 function _all_ssh_host() {
   local _known_hosts=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })
