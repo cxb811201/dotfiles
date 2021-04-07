@@ -37,8 +37,20 @@ export GOPROXY="https://goproxy.cn,direct"
 export GOPRIVATE="git.iobox.me"
 export GOPATH="$HOME/.go"
 export GOBIN="$GOPATH/bin"
-if [[ $OSTYPE == darwin* ]]; then
-  if [[ -d "/usr/local/opt/go/libexec" ]]; then
-    export GOROOT="/usr/local/opt/go/libexec"
-  fi
+if [[ $OSTYPE == darwin* && -d "/usr/local/opt/go/libexec" ]]; then
+  export GOROOT="/usr/local/opt/go/libexec"
+fi
+
+if [[ $OSTYPE == darwin* && -d "/usr/local/opt/subversion/lib/perl5/site_perl" ]]; then
+  local _dirs=($(ls "/usr/local/opt/subversion/lib/perl5/site_perl"))
+  for _dir in "${_dirs[@]}"; do
+    local _libdir="/usr/local/opt/subversion/lib/perl5/site_perl/${_dir}/darwin-thread-multi-2level"
+    if [[ -d $_libdir ]]; then
+      if [[ -z $PERL5LIB ]]; then
+        export PERL5LIB="${_libdir}"
+      else
+        export PERL5LIB="${_libdir}:$PERL5LIB"
+      fi
+    fi
+  done
 fi
