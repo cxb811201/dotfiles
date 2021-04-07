@@ -41,6 +41,7 @@ if [[ $OSTYPE == darwin* && -d "/usr/local/opt/go/libexec" ]]; then
   export GOROOT="/usr/local/opt/go/libexec"
 fi
 
+# fix git-svn for macOS
 if [[ $OSTYPE == darwin* && -d "/usr/local/opt/subversion/lib/perl5/site_perl" ]]; then
   local _dirs=($(ls "/usr/local/opt/subversion/lib/perl5/site_perl"))
   for _dir in "${_dirs[@]}"; do
